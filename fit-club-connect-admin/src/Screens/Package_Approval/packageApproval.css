@@ -1,0 +1,59 @@
+.actual-history div{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.approvals-box{
+    width: 95%;
+    height: auto;
+    padding: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 32px;
+    justify-content: space-between;
+}
+
+.package-box{
+    width: 275px;
+    height: auto;
+    border: 0.5px solid black;
+    border-radius: 8px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    gap: 16px;
+}
+
+.package-box img{
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.package-box p{
+    font-size: 0.83rem;
+}
+
+.package-box div{
+    display: flex;
+    flex-direction: column;
+}
+
+.package-box button{
+    width: 78px;
+    height: 36px;
+    border-radius: 8px;
+    border: none;
+    background-color: #FF7A59;
+    color: #ffffff;
+}
+
+.package-box button:hover{
+    transform: scale(1.1);
+}
+
+.package-box span{
+    font-weight: 400;
+}

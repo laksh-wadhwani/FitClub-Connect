@@ -1,0 +1,83 @@
+h2, h3, h4,h5,p{
+    margin: 0;
+    padding: 0;
+}
+
+.main-box{
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 24px;
+    gap: 5rem;
+}
+
+.sign-box{
+    width: 378px;
+    background-color: white;
+    border-radius: 16px;
+    margin-top: 5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+    padding: 2.1rem 0;
+    box-shadow: 0 0.1rem 0.5rem rgba(0,0,0,.55);
+}
+
+.sign-content{
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    width: 320px;
+}
+
+.sign-content h4{
+    font-size: 23px;
+    letter-spacing: 3px;
+}
+
+.sign-content input{
+    width: 85%;
+    height: 42px;
+    border-color: #9B9797;
+    border-width: 0.5px;
+    border-radius: 8px;
+    padding: 0 20px;
+    background-color: transparent;
+}
+
+.sign-box button{
+    width: 320px;
+    height: 42px;
+    border-radius: 8px;
+    background-color: #FF7A59;
+    border: none;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.sign-box button:hover{
+    transform: scale(1.1);
+    cursor: pointer;
+}
+
+.otpBox{
+    display: flex;
+    gap: 10px;
+}
+
+.otpBox input{
+    width: 50px;
+    padding: 10px;
+    outline: none;
+    text-align: center;
+    border: 0.2px solid gray;
+    border-radius: 8px;
+}
+
+.error-message{
+    color: red;
+    width: 80%;
+    margin-left: 10px;
+}
