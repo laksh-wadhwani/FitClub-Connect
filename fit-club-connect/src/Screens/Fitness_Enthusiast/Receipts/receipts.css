@@ -1,0 +1,71 @@
+.receipts-display-box{
+    width: 80%;
+    height: auto;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 3.5rem;
+    margin-top: 7rem;
+}
+
+.receipt-card{
+    backface-visibility: hidden;
+    background: rgba(255, 255, 255, 0.55);
+    border-radius: 16px;
+    box-shadow: 0 0.1rem 0.5rem rgba(0, 0, 0, .55);
+    backdrop-filter: blur(6.2px);
+    -webkit-backdrop-filter: blur(6.2px);
+    padding: 1rem;
+    width: 224px;
+    height: 272px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.receipt-card img{
+    width: 80px;
+    height: 80px;
+    position: absolute;
+    bottom: 16rem;
+}
+
+.payment-details{
+    display: flex;
+    flex-direction: column;
+    font-family: auto;
+    font-size: medium;
+    font-weight: 600;
+    text-transform: capitalize;
+    text-align: center;
+    width: 100%;
+    margin-top: 2rem;
+}
+
+.package-details{
+    width: 95%;
+    font-family: auto;
+    display: flex;
+    flex-direction: column;
+    font-size: medium;
+    font-weight: bold;
+    gap: 0.6rem;
+}
+
+.package-details div{
+    display: flex;
+    flex-direction: column;
+}
+
+.package-details div span{
+    font-size: small;
+    color: gray;
+    font-weight: 100;
+}
+
+.payment-status{
+    font-family: auto;
+    font-size: medium;
+    color: #FF7A59;
+    margin-top: 0.5rem;
+}

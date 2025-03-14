@@ -1,0 +1,210 @@
+.workout-modal {
+  position: absolute;
+  top: 49%;
+  left: 60%;
+  right: auto;
+  bottom: auto;
+  margin-right: -50%;
+  transform: translate(-50%, -50%);
+  background: white;
+  border-radius: 10px;
+  outline: none;
+  max-width: 400px;
+  max-height: 600px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+}
+
+.workout-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+.workout_upper_bar {
+  width: 100%;
+  display: flex;
+  padding: 1rem 4rem;
+  box-sizing: border-box;
+  margin-top: 1.5rem;
+}
+
+.workout_upper_bar button {
+  background-color: #ff7a59;
+  padding: 0.7rem 1.3rem;
+  font-size: large;
+  color: white;
+  border: none;
+  font-family: auto;
+  border-radius: 5px;
+  box-shadow: 0 0.1rem 0.5rem rgba(0, 0, 0, 0.55);
+  transition: all 0.5s ease-in-out;
+}
+
+.workout_upper_bar button:hover {
+  background-color: transparent;
+  transform: scale(1.1);
+  border: 0.5px solid #ff7a59;
+  color: black;
+}
+
+.workout_videos_upload {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.workout_videos_upload input {
+  width: 80%;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  border: 0.5px solid gainsboro;
+  outline-color: gray;
+}
+
+.workout_videos_upload button {
+  font-family: auto;
+  font-size: medium;
+  padding: 0.4rem 2rem;
+  background-color: #ff7a59;
+  border: none;
+  border-radius: 5px;
+  color: white;
+}
+
+.workout_videos_upload button:hover {
+  transform: scale(1.1);
+}
+
+.workout_videos {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4rem;
+  margin-left: 4rem;
+  margin-top: 2rem;
+}
+
+.workout_videos div {
+  width: 40%;
+  height: 5rem;
+  backface-visibility: hidden;
+  background: rgba(255, 255, 255, 0.55);
+  border-radius: 12px;
+  box-shadow: 0 0.1rem 0.5rem rgba(0, 0, 0, 0.55);
+  backdrop-filter: blur(6.2px);
+  -webkit-backdrop-filter: blur(6.2px);
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.workout_videos button {
+  font-size: medium;
+  font-family: auto;
+  color: white;
+  background: #ff7a59;
+  border: none;
+  border-radius: 5px;
+  padding: 0.5rem 1rem;
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  flex-direction: row-reverse;
+  transition: all 0.5s ease;
+}
+
+.workout_videos button:hover {
+  transform: scale(1.1);
+  background-color: transparent;
+  border: 0.5px solid #ff7a59;
+  color: black;
+}
+
+.workout_videos label {
+  font-size: large;
+  font-family: auto;
+  cursor: pointer;
+}
+
+.workout_videos label:hover {
+  transform: scale(1.1);
+}
+
+.workout-video-modal {
+  position: absolute;
+  top: 49%;
+  left: 60%;
+  right: auto;
+  bottom: auto;
+  margin-right: -50%;
+  transform: translate(-50%, -50%);
+  background: white;
+  border-radius: 10px;
+  outline: none;
+  width: 400px;
+  height: 230px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+}
+
+.qr-modal {
+  position: absolute;
+  top: 49%;
+  left: 60%;
+  right: auto;
+  bottom: auto;
+  margin-right: -50%;
+  transform: translate(-50%, -50%);
+  background: white;
+  border-radius: 10px;
+  outline: none;
+  width: 272px;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem;
+  justify-content: center;
+}
+
+.qr-code-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.qr-code-section label {
+  font-family: auto;
+  font-size: larger;
+}
+
+.qr-code-section button {
+  background: #ff7a59;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 0.5rem 1rem;
+  font-family: auto;
+  font-size: medium;
+}
+@media only screen and (min-width: 300px) and (max-width: 900px) {
+  .workout_videos {
+    flex-direction: column;
+  }
+
+  .workout_videos div {
+    flex-wrap: wrap;
+  }
+}

@@ -1,0 +1,108 @@
+.signIn-box{
+    width: 378px;
+    background-color: white;
+    border-radius: 16px;
+    margin-top: 5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+    padding: 2.1rem 0;
+    box-shadow: 0 0.1rem 0.5rem rgba(0,0,0,.55);
+}
+
+.signIn-content{
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    width: 320px;
+}
+
+.signIn-content h4{
+    font-size: 23px;
+    letter-spacing: 3px;
+}
+
+.signIn-content p{
+    font-size: 14px;
+    color: #787878;
+    font-weight: 200;
+    width: 163px;
+    margin-top: -12px;
+}
+
+.signIn-content input{
+    width: 85%;
+    height: 42px;
+    border-color: #9B9797;
+    border-width: 0.5px;
+    border-radius: 8px;
+    padding: 0 20px;
+    background-color: transparent;
+}
+
+.login-btn{
+    width: 320px;
+    height: 42px;
+    border-radius: 8px;
+    background-color: #FF7A59;
+    border: none;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.login-btn:hover{
+    transform: scale(1.1);
+    cursor: pointer;
+}
+@media only screen and (max-width: 481px){
+    .signIn-box{
+        width: 300px;
+    }
+    
+    .signIn-content{
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+        width: 286px;
+        margin-left: 10px;
+    }
+    
+    .signIn-content h4{
+        font-size: 23px;
+        letter-spacing: 3px;
+    }
+    
+    .signIn-content p{
+        font-size: 14px;
+        color: #787878;
+        font-weight: 200;
+        width: 163px;
+        margin-top: -12px;
+    }
+    
+    .signIn-content input{
+        width: 82%;
+        height: 42px;
+        border-color: #9B9797;
+        border-width: 0.5px;
+        border-radius: 8px;
+        padding: 0 20px;
+        background-color: transparent;
+    }
+    
+    .login-btn{
+        width: 82%;
+        height: 42px;
+        border-radius: 8px;
+        background-color: #FF7A59;
+        border: none;
+        font-size: 20px;
+        font-weight: 600;
+    }
+    
+    .login-btn:hover{
+        transform: scale(1.1);
+        cursor: pointer;
+    }
+}

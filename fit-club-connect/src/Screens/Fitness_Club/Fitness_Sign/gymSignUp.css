@@ -1,0 +1,194 @@
+.gym-signUp{
+    width: 100%;
+    height: 100%;
+}
+
+.signUp-bg{
+    width: 100%;
+    height: 632px;
+    background: url('../../assets/gym-signup.svg');
+    background-attachment: scroll;
+    background-position:top;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.signUp-text{
+    width: 455px;
+    position: absolute;
+    left: 10rem;
+    top: 8rem;
+}
+
+.signUp-text h4{
+    font-size: 40px;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: white;
+    line-height: 110%;
+}
+
+.signUp-text p{
+    color: white;
+    font-size: 16px;
+    line-height: 170%;
+    font-weight: 200;
+    margin-top: 8px;
+    text-transform: capitalize;
+}
+
+.signUp-box{
+    width: 378px;
+    background-color: white;
+    border-radius: 16px;
+    position: absolute;
+    top: 25rem;
+    left: 10rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+    padding: 24px 0;
+}
+
+.signUp-box div{
+    width: 320px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+}
+
+.signUp-box h4{
+    font-size: 23px;
+    letter-spacing: 1px;
+    text-transform: capitalize;
+}
+
+.signUp-box p{
+    font-size: 13px;
+    font-weight: 300;
+    color: #787878;
+    letter-spacing: 1px;
+}
+
+.signUp-box input{
+    width: 85%;
+    height: 42px;
+    border-color: #9B9797;
+    border-width: 0.5px;
+    border-radius: 8px;
+    padding: 0 20px;
+    background-color: transparent;
+}
+
+.signUp-box button{
+    width: 320px;
+    height: 42px;
+    border-radius: 8px;
+    background-color: #FF7A59;
+    border: none;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.signUp-box button:hover{
+    transform: scale(1.1);
+    cursor: pointer;
+}
+
+.signUp-box label{
+    color: #9B9797;
+    font-size: 14px;
+    font-weight: 500;
+    width: 320px;
+    display: flex;
+    justify-content: space-between;
+}
+
+@media (max-width: 650px){
+    .signUp-text{
+        width: 480px;
+        position: absolute;
+        left: 2rem;
+        top: 8rem;
+    }
+    
+    
+    .signUp-box{
+        width: 378px;
+        left: 2rem;
+    }
+    .signUp-text h4 {
+        font-size: 30px;
+        font-weight: bold;
+        text-transform: uppercase;
+        color: white;
+        line-height: 110%;
+    }
+}
+@media (max-width: 490px){
+    .signUp-text{
+        width: 330px;
+        position: absolute;
+        left: 2rem;
+        top: 8rem;
+    }
+    
+    
+    .signUp-box{
+        width: 378px;
+        left: 2rem;
+    }
+    .signUp-text h4 {
+        font-size: 20px;
+        font-weight: bold;
+        text-transform: uppercase;
+        color: white;
+        line-height: 110%;
+    }
+}
+@media (max-width: 420px){
+    .signUp-text{
+        width: 330px;
+        position: absolute;
+        left: 2rem;
+        top: 8rem;
+    }
+    
+    .signUp-bg{
+        height: 410px;
+    }
+    .signUp-box{
+        width: 350px;
+        left: 0.7rem;
+    }
+    .signUp-text h4 {
+        font-size: 20px;
+        font-weight: bold;
+        text-transform: uppercase;
+        color: white;
+        line-height: 110%;
+    }
+}
+@media (max-width: 370px){
+    .signUp-text{
+        width: 330px;
+        position: absolute;
+        left: 1rem;
+        top: 8rem;
+    }
+    
+    
+    .signUp-box{
+        width: 340px;
+        left: 0rem;
+    }
+    .signUp-text h4 {
+        font-size: 20px;
+        font-weight: bold;
+        text-transform: uppercase;
+        color: white;
+        line-height: 110%;
+    }
+}

@@ -1,0 +1,133 @@
+.upload-packages-box{
+    width: 822px;
+    height: 678px;
+    position: absolute;
+    top: 80px;
+    left: 176px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.package-field-labels{
+    position: relative;
+    /* left: 72px; */
+    background-color: #E8E7E8;
+    padding: 0px 10px;
+    font-size: 16px;
+    color: #a09999;
+    font-weight: 500;
+    text-align: center;
+}
+.position-pkjfeilds1{
+    position: absolute;
+    top: 5px;
+    left: 55px;
+}
+.position-pkjfeilds2{
+    position: absolute;
+    top: 97px;
+    left: 55px;
+}
+.position-pkjfeilds3{
+    position: absolute;
+    top: 189px;
+    left: 55px;
+}
+.position-pkjfeilds4{
+    position: absolute;
+    top: 281px;
+    left: 55px;
+}
+.position-pkjfeilds5{
+    position: absolute;
+    top: 373px;
+    left: 55px;
+}
+.upload-packages-button{
+    width: 736px;
+    height: 69px;
+    background-color: #FF7A59;
+    box-shadow: 0 4px 8px 2px rgba(0, 0, 0, 0.25);
+    border: none;
+    border-radius: 10px;
+    color: white;
+    font-size: 36px;
+    font-weight: bold;
+    margin: 32px 0px 0px 0px;
+}
+
+.upload-packages-button:hover{
+   transform: scale(1.1);
+}
+@media (max-width: 1250px){
+    .upload-packages-box{
+        left: 88px;
+    }
+    
+}
+@media (max-width: 1100px){
+    .upload-packages-box{
+        left: 65px;
+    }
+    
+}
+@media (max-width:850px) {
+    .upload-packages-box{
+        left: 6%;
+    }
+    .upload-packages-box{
+        width: 90vw;
+        height: 100vh;
+    }
+    
+    .upload-packages-button{
+        width: 77vw;
+        height: 69px;
+        background-color: #FF7A59;
+        box-shadow: 0 4px 8px 2px rgba(0, 0, 0, 0.25);
+        border: none;
+        border-radius: 10px;
+        color: white;
+        font-size: 24px;
+        font-weight: bold;
+        margin: 32px 0px 0px 0px;
+        padding: 10px;
+    }
+    .position-pkjfeilds1{
+        position: absolute;
+        top: 5px;
+        left: 3%;
+    }
+    .position-pkjfeilds2{
+        position: absolute;
+        top: 97px;
+        left: 3%;
+    }
+    .position-pkjfeilds3{
+        position: absolute;
+        top: 189px;
+        left: 3%;
+    }
+    .position-pkjfeilds4{
+        position: absolute;
+        top: 281px;
+        left: 3%;
+    }
+    .position-pkjfeilds5{
+        position: absolute;
+        top: 373px;
+        left: 3%;
+    }
+}
+@media (max-width:550px) {
+    .upload-packages-box{
+        left: 25px;
+    }
+
+}
+@media (max-width:480px) {
+    .upload-packages-box{
+        left: 18px;
+    }
+}

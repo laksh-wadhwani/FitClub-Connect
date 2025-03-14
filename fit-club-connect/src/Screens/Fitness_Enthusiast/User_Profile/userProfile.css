@@ -1,0 +1,65 @@
+.user-portal-section{
+    margin-top: 5rem;
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+    height: auto;
+    align-items: center;
+    gap: 1rem;
+}
+
+.user-portal-section .section{
+    width: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.section button{
+    width: fit-content;
+    padding: 0.5rem 2rem;
+    background: #FF7A59;
+    border: none;
+    color: white;
+    font-family: auto;
+    font-size: medium;
+    border-radius: 6px;
+    margin: 2rem 1rem;
+}
+
+.section button:hover{
+    transform: scale(1.1);
+}
+
+@media only screen and (min-width:300px) and (max-width: 755px){
+    .user-portal-section{
+        margin-top: 5rem;
+        display: flex;
+        flex-direction: column;
+        width: 70%;
+        height: auto;
+        align-items: center;
+        gap: 1rem;
+    }
+    
+    .user-portal-section .section{
+        width: auto;
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .section button{
+        width: 80vw;
+        padding: 0.5rem 2rem;
+        background: #FF7A59;
+        border: none;
+        color: white;
+        font-family: auto;
+        font-size: medium;
+        border-radius: 6px;
+        margin: 2rem 1rem;
+    }
+    
+    .section button:hover{
+        transform: scale(1.02);
+    }
+}

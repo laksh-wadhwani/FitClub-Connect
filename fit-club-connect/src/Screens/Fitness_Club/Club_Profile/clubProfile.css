@@ -1,0 +1,421 @@
+.main-box{
+    width: 81vw;
+    position: absolute;
+    right: 0;
+}
+
+.each-box-heading{
+    font-size: 36px;
+    font-family: itim;
+}
+
+.my-profile-box{
+    position: absolute;
+    top: 35px;
+    left: 200px;
+    width: 800px;
+}
+.input-fields{
+    width: 721px;
+    height: 24px;
+    border: 1px solid #a09999;
+    background-color: transparent;
+    border-radius: 20px;
+    padding: 25px 0px 25px 41px;
+    font-size: 20px;
+    margin-top: 18px;
+}
+.short-fields{
+    width: 290px;
+    height: 24px;
+    border: 1px solid #a09999;
+    background-color: transparent;
+    border-radius: 20px;
+    padding: 25px 0px 25px 41px;
+    font-size: 20px;
+    margin-top: 18px;
+}
+.save-button{
+    width: 280px;
+    height: 42px;
+    background-color: #FF7A59;
+    box-shadow: 0 4px 8px 2px rgba(0, 0, 0, 0.25);
+    border: none;
+    border-radius: 10px;
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    margin: 32px 0px 0px 0px;
+}
+.save-button-gray{
+    width: 280px;
+    height: 42px;
+    background: gray;
+    box-shadow: 0 4px 8px 2px rgba(0, 0, 0, 0.25);
+    border: none;
+    border-radius: 10px;
+    color: white;
+    font-size: 23px;
+    font-weight: bold;
+    margin: 32px 0px 0px 0px;
+}
+
+.save-button:hover{
+    transform: scale(1.2);
+}
+.lN-label{
+    position: absolute;
+    top: 105px;
+    left: 450px;
+}
+.FN-labels{
+    position: absolute;
+    top: 105px;
+    left: 30px;
+}
+.EM-lables{
+    position: absolute;
+    top: 200px;
+    left: 30px;
+    
+}
+.CN-labels{
+    position: absolute;
+    top: 295px;
+    left: 30px;
+}
+.change-password-box{
+    width: 798px;
+    height: 341px;
+    position: absolute;
+    left: 200px;
+    top: 636px;
+}
+
+.gym-information-box{
+    width: 798px;
+    height: 341px;
+    position: absolute;
+    left: 200px;
+    top: 1026px;
+}
+.inputName-labels{
+    position: absolute;
+    background-color: #E8E7E8;
+    padding: 0px 10px;
+    font-size: 16px;
+    width: 86px;
+    color: #a09999;
+    font-weight: 500;
+    /* left: 24px; */
+}
+.underline{
+    width: 742px;
+    height: 1px;
+    background-color: black;
+    opacity: 0.11;
+    margin-top: 32px;
+}
+.margin-right{
+    margin-right: 90px;
+}
+@media only screen and (min-width:827px) and (max-width: 999px){
+    .main-box{
+        width: 100vw;
+        position: absolute;
+        right: 0;
+    }
+    .gym-information-box{
+        width: 700px;
+        height: 341px;
+        position: absolute;
+        left: 60px;
+        top: 1026px;
+    }
+    .change-password-box{
+        width: 700px;
+        height: 341px;
+        position: absolute;
+        left: 60px;
+        top: 636px;
+    }
+    .my-profile-box{
+        position: absolute;
+        top: 35px;
+        left: 60px;
+        width: auto;
+    }
+}
+@media only screen and (min-width:765px) and (max-width: 826px){
+    .main-box{
+        width: 100vw;
+        position: absolute;
+        right: 0;
+    }
+    .gym-information-box{
+        width: 100vw;
+        height: 341px;
+        position: absolute;
+        left: 20px;
+        top: 1026px;
+    }
+    .change-password-box{
+        width: 100vw;
+        height: 341px;
+        position: absolute;
+        left: 20px;
+        top: 636px;
+    }
+    .my-profile-box{
+        position: absolute;
+        top: 35px;
+        left: 20px;
+        width: 100vw;
+    }
+    .input-fields{
+        width: 91vw;
+        height: 24px;
+        border: 1px solid #a09999;
+        background-color: transparent;
+        border-radius: 20px;
+        padding: 25px 0px 25px 41px;
+        font-size: 20px;
+        margin-top: 18px;
+    }
+    .short-fields{
+        width: 38vw;
+        height: 24px;
+        border: 1px solid #a09999;
+        background-color: transparent;
+        border-radius: 20px;
+        padding: 25px 0px 25px 41px;
+        font-size: 20px;
+        margin-top: 18px;
+    }
+    .underline{
+        width: 90vw;
+        height: 1px;
+        background-color: black;
+        opacity: 0.11;
+        margin-top: 32px;
+    }
+    .margin-right{
+        margin-right: 76px;
+    }
+}
+@media only screen and (min-width:300px) and (max-width: 764px){
+    .main-box{
+        width: 100vw;
+        position: absolute;
+        right: 0;
+    }
+    .gym-information-box{
+        width: 100vw;
+        height: 341px;
+        position: absolute;
+        left: 20px;
+        top: 1026px;
+    }
+    .change-password-box{
+        width: 100vw;
+        height: 341px;
+        position: absolute;
+        left: 20px;
+        top: 636px;
+    }
+    .my-profile-box{
+        position: absolute;
+        top: 35px;
+        left: 20px;
+        width: 100vw;
+    }
+    .input-fields{
+        width: 91vw;
+        height: 24px;
+        border: 1px solid #a09999;
+        background-color: transparent;
+        border-radius: 20px;
+        padding: 25px 0px 25px 41px;
+        font-size: 20px;
+        margin-top: 18px;
+    }
+    .short-fields{
+        width: 290px;
+        height: 24px;
+        border: 1px solid #a09999;
+        background-color: transparent;
+        border-radius: 20px;
+        padding: 25px 0px 25px 41px;
+        font-size: 20px;
+        margin-top: 18px;
+    }
+    .underline{
+        width: 90vw;
+        height: 1px;
+        background-color: black;
+        opacity: 0.11;
+        margin-top: 32px;
+    }
+    .margin-right{
+        margin-right: 64px;
+    }
+    .lN-label{
+        position: absolute;
+        top: 105px;
+        left: 417px;
+    }
+}
+@media (max-width: 750px){
+    .margin-right{
+        margin-right: 50px;
+    }
+    .lN-label{
+        position: absolute;
+        top: 105px;
+        left: 380px;
+    }
+}
+@media (max-width: 735px){
+    .margin-right{
+        margin-right: 45px;
+    }
+    .lN-label{
+        position: absolute;
+        top: 105px;
+        left: 360px;
+    }
+}
+@media (max-width: 730px){
+    .margin-right{
+        margin-right: 40px;
+    }
+    .lN-label{
+        position: absolute;
+        top: 105px;
+        left: 390px;
+    }
+}
+@media (max-width: 720px){
+    .margin-right{
+        margin-right: 35px;
+    }
+    .lN-label{
+        position: absolute;
+        top: 105px;
+        left: 385px;
+    }
+}
+@media (max-width: 711px){
+    .margin-right{
+        margin-right: 30px;
+    }
+    .lN-label{
+        position: absolute;
+        top: 105px;
+        left: 380px;
+    }
+}
+@media (max-width: 706px){
+    .margin-right{
+        margin-right: 25px;
+    }
+    .lN-label{
+        position: absolute;
+        top: 105px;
+        left: 375px;
+    }
+}
+@media (max-width: 700px){
+    .margin-right{
+        margin-right: 20px;
+    }
+    .lN-label{
+        position: absolute;
+        top: 105px;
+        left: 370px;
+    }
+}
+@media (max-width: 695px){
+    .margin-right{
+        margin-right: 15px;
+    }
+    .lN-label{
+        position: absolute;
+        top: 105px;
+        left: 365px;
+    }
+}
+@media (max-width: 690px){
+    .margin-right{
+        margin-right: 10px;
+    }
+    .lN-label{
+        position: absolute;
+        top: 105px;
+        left: 360px;
+    }
+}
+@media (max-width: 685px){
+    .margin-right{
+        margin-right: 5px;
+    }
+    .lN-label{
+        position: absolute;
+        top: 105px;
+        left: 355px;
+    }
+}
+@media (max-width: 680px){
+    .margin-right{
+        margin-right: 0px;
+    }
+    .short-fields{
+        width: 85vw;
+    }
+    .input-fields{
+        width: 85vw;
+    }
+    .lN-label{
+        position: absolute;
+        top: 105px;
+        left: 350px;
+    }
+    .lN-label{
+        position: absolute;
+        top: 200px;
+        left: 20px;
+    }
+    .FN-labels{
+        position: absolute;
+        top: 105px;
+        left: 20px;
+    }
+    .EM-lables{
+        position: absolute;
+        top: 295px;
+        left: 20px;
+        
+    }
+    .CN-labels{
+        position: absolute;
+        top: 388px;
+        left: 20px;
+    }
+    .save-button{
+        width: 90vw;
+        margin: 32px 0px 0px 16px;
+    }
+    .save-button-gray{
+        width: 90vw;
+        margin: 32px 0px 0px 16px;
+    }
+    .gym-information-box{
+        left: 8px;
+    }
+    .change-password-box{
+        left: 8px;
+    }
+    .my-profile-box{
+        left: 8px;
+    }
+}

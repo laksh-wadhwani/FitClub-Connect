@@ -1,0 +1,254 @@
+.navBar{
+    width: 100vw;
+    max-height: 3.35rem;
+    background-color: white;
+    box-shadow: 0 0.1rem 0.5rem rgba(0, 0, 0, 0.479);
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.navBar-box{
+    width: 80%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logoText-box{
+    display: flex;
+    gap: 13px;
+    align-items: center;
+}
+
+.logoText-box h2{
+    text-transform: uppercase;
+    font-size: 1.3rem;
+    line-height: 90%;
+}
+
+.sign-buttons{
+    display: flex;
+    gap: 16px;
+}
+
+.sign-buttons button{
+    background-color: #FF7A59;
+    border: none;
+    font-family: auto;
+    font-size: medium;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    color: white;
+    text-transform: uppercase;
+    max-width: 6rem;
+    max-height: 2.5rem;
+    box-sizing: border-box;
+    transition: all 0.7s ease-in-out;
+}
+
+.sign-buttons button:hover{
+    background-color: transparent;
+    color: black;
+    border: 0.5px solid #FF7A59;
+    cursor: pointer;
+}
+
+.sign-buttons div{
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.sign-buttons div img{
+    width: 2.3rem;
+    height: 2.3rem;
+    border-radius: 50%;
+    object-fit: contain;
+}
+
+.sign-buttons img:hover{
+    transform: scale(1.05);
+    cursor: pointer;
+}
+
+.sign-buttons div label{
+    font-family: auto;
+    font-size: larger;
+    cursor: pointer;
+}
+
+.sign-dropdown{
+    width: 6rem;
+    height: 5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    position: absolute;
+    top: 3.5rem;
+    right: 15.6rem;
+    padding: 12px;
+    border-radius: 8px;
+    background-color: white;
+
+}
+.position1{
+    right:24%;;
+}
+.position3{
+    right: 8.8rem;
+}
+.sign-dropdown button{
+    background-color: transparent;
+    border: 1px solid #FF7A59;
+    padding: 0.5rem;
+    border-radius: 4px;
+    width: 100%;
+    font-family: auto;
+    font-size: medium;
+    text-transform: capitalize;
+    transition: all 0.5s ease-in;
+}
+
+.sign-dropdown button:hover{
+    cursor: pointer;
+    background-color: rgba(255, 122, 89, 0.4);
+}
+
+/* For small devices (mobile) */
+@media (max-width: 480px) {
+    .navBar-box {
+        width: 100%;
+        align-items: flex-start;
+        padding: 0rem 1rem;
+    }
+
+    .logoText-box {
+        gap: 0.25rem;
+    }
+
+    .sign-buttons div{
+        margin-bottom: 10px;
+    }
+    .logoText-box h2 {
+        font-size: small;
+        line-height: 0;
+    }
+
+    .sign-buttons {
+        justify-content: center;
+        gap: 8px;
+        margin-top: 0.5rem;
+    }
+
+    .sign-buttons button {
+        font-size: 12px;
+        padding: 0.3rem 1rem;
+        max-width: 5rem;
+        max-height: 2rem;
+    }
+
+    .sign-buttons div img {
+        width: 1.8rem;
+        height: 1.8rem;
+    }
+
+    .sign-dropdown {
+        top: 2.5rem;
+        right: 5.7rem;
+        width: 5rem;
+        height: 4rem;
+        padding: 8px;
+    }
+
+    .sign-dropdown button {
+        font-size: small;
+        padding: 0.3rem;
+    }
+    .position1{
+        right:45%;
+    }
+    .position3 {
+        right: 0.6rem;
+    }
+}
+/* For medium devices (tablets) */
+@media (min-width: 481px) and (max-width: 768px) {
+    .navBar-box {
+        width: 90%;
+    }
+    .logoText-box h2 {
+        font-size: 1.2rem;
+    }
+    
+    .sign-buttons button {
+        font-size: medium;
+        padding: 0.4rem 0.8rem;
+        max-width: 5.5rem;
+        max-height: 2.3rem;
+    }
+    
+    .sign-buttons div img {
+        width: 2rem;
+        height: 2rem;
+    }
+
+    /* .sign-dropdown {
+        top: 3.5rem;
+        right: 10rem;
+        width: 6rem;
+        height: 4.5rem;
+        padding: 10px;
+    } */
+    .position1{
+        right:36%;
+    }
+    .position3 {
+        right: 1rem;
+    }
+}
+@media (max-width: 900px){
+    .position1{
+        right:39%;
+    }
+}
+@media (max-width: 1100px){
+    .position1{
+        right:35%;
+    }
+}
+/* For large devices (desktops) */
+/* @media (min-width: 769px) {
+    .navBar-box {
+        width: 80%;
+    }
+
+    .logoText-box h2 {
+        font-size: 1.3rem;
+    }
+
+    .sign-buttons button {
+        font-size: medium;
+        padding: 0.5rem 1rem;
+        max-width: 6rem;
+        max-height: 2.5rem;
+    }
+
+    .sign-buttons div img {
+        width: 2.3rem;
+        height: 2.3rem;
+    }
+
+    .sign-dropdown {
+        top: 3.5rem;
+        right: 15.6rem;
+        width: 6rem;
+        height: 5rem;
+        padding: 12px;
+    }
+    .position3 {
+        right: 9rem;
+    }
+} */

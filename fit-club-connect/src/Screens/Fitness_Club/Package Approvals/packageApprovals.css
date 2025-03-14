@@ -1,0 +1,27 @@
+.after-dropDown-box{
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+}
+
+.approveReject-btn{
+    display: flex;
+    justify-content: space-around;
+}
+
+.receipt-display-box{
+    width: auto;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2.5rem;
+    padding: 0 5.5rem;
+    max-height: 224px;
+    overflow: auto;
+    margin-top: 3rem;
+}
+@media (max-width: 768px){
+    .receipt-display-box{
+        padding: 0 3.5rem;
+    }
+
+}

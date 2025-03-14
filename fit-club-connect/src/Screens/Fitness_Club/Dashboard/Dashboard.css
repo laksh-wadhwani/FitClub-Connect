@@ -1,0 +1,167 @@
+.side-bar{
+    background-color: #262427;
+    width: 270px;
+    height: 100%;
+    border-radius: 0rem 1.5rem 1.5rem 0rem;
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.logo-text div{
+    display: flex;
+    align-items: center;
+    color: white;
+    font-family: auto;
+    font-size: x-large;
+    gap: 0.5rem;
+}
+
+.logo-text div img{
+    width: 50px;
+    height: 50px;
+}
+
+.dashboard-buttons{
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+}
+
+.dashboard-buttons button{
+    display: flex;
+    align-items: center;
+    color: white;
+    background-color: transparent;
+    font-family: auto;
+    font-size: medium;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    gap: 0.6rem;
+    border: none;
+}
+
+.dashboard-buttons button:hover{
+    background-color: #FF7A59;
+}
+
+.dashboard-buttons img{
+    width: 1.5rem;
+    height: 1.5rem;
+}
+
+.user-info{
+    display: flex;
+    color: white;
+    align-items: center;
+    font-family: auto;
+    font-size: larger;
+    text-transform: capitalize;
+    gap: 0.5rem;
+    background: #FF7A59;
+    border-radius: 8px;
+    padding: 0.4rem .7rem;
+    box-shadow: 0 0.1rem 0.5rem rgba(0,0,0,.55);
+}
+
+.user-info img{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+a{
+    text-decoration: none;
+    width: inherit;
+}
+.hamb{
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.2), rgba(0, 0, 0, 0.3));
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    font-weight: 800;
+    border: none;
+    margin:0px;
+    width: 100vw;
+    height: 3vh;
+    text-align: start;
+    font-size: 20px;
+    display: none;
+    padding: 10px;
+}
+.toggle-button{
+    padding: 5px 10px;
+    text-align: start;
+    font-size: 30px;
+    background-color: transparent;
+    border: none;
+}
+.toggle-button2{
+    padding: 5px 10px;
+    background-color: #262427;
+    font-weight: 800;
+    border: none;
+    margin:0px;
+    font-size: 24px;
+    color: white;
+    margin-left: 0px;
+    display: none;
+}
+.side-bar.open{
+    left: 0;
+}
+@media only screen and (min-width:288px) and (max-width: 999px){
+    .side-bar{
+        background-color: #262427;
+        width: 270px;
+        height: 100%;
+        border-radius: 0rem 1.5rem 1.5rem 0rem;
+        position: fixed;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-evenly;
+        left: -100%;
+        z-index: 10;
+        transition: all 0.5s ease-in-out;
+    }
+    .user-info{
+        width: 82%;
+    }
+    .dashboard-buttons{
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+        height: 60vh;
+    }
+    .dashboard-buttons button{
+        display: flex;
+        align-items: center;
+        color: white;
+        background-color: transparent;
+        font-family: auto;
+        font-size: larger;
+        padding: 0.5rem 1rem;
+        border-radius: 8px;
+        gap: 0.6rem;
+        border: none;
+    }
+    .hamb{
+        position: fixed;
+        z-index: 10;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        gap: 40px;
+    }
+    .hamb h2{
+        margin-bottom: 30px;
+        color: rgb(29, 27, 27);
+    }
+    .toggle-button2{
+        display: block;
+    }
+}

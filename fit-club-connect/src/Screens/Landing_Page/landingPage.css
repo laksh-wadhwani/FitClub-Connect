@@ -1,0 +1,873 @@
+h3,h4,p{
+    margin: 0px;
+    padding: 0px;
+}
+.main-boxx{
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+    row-gap: 9.375rem;
+}
+
+.section1{
+    width: 100%;
+    height: 42rem;
+    background-image: url('../assets/section1.png');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    margin-top: 3rem;
+}
+
+.section1-tagline{
+    color: white;
+    font-size: 3.8125rem;
+    margin: 0 0 21.5rem 10rem;
+    font-weight: bolder;
+    line-height: 110%;
+}
+
+.section2{
+    width: 100vw;
+    height: 725px;
+    display: flex;
+    flex-direction: column;
+    gap: 35px;
+}
+
+.sections-heading-box{
+    display: flex;
+    align-items: center;
+    margin-left: 10rem;
+}
+
+.bar{
+    background-color: #FF7A59;
+    width: 44px;
+    height: 6px;
+    transform: rotate(90deg)
+}
+
+.sections-heading{
+    font-size: 40px;
+    font-weight: 700;
+    text-transform: uppercase;
+    line-height: 110%;
+}
+
+
+.section2-text{
+    width: 550px;
+    height: 300px;
+    border-radius: 16px;
+    background-color: white;
+    position: absolute;
+    top: 75rem;
+    left: 10rem;
+    display: flex;
+    flex-direction: column;
+    padding: 30px 50px;
+    justify-content: space-between;
+}
+
+.section2-text h4{
+    font-size: 34px;
+    font-weight: 500;
+    line-height: 110%;
+    text-transform: uppercase;
+}
+
+.section3{
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+}
+
+.cities{
+    width: 96vw;
+    display: flex;
+    justify-content: center;
+    align-self: center;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+}
+
+.cards{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.citiesButton{
+    width: 142px;
+    height: 38px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-self: center;
+    text-transform: capitalize;
+    font-size: 24px;
+    font-weight: 500;
+    border-radius: 6px;
+    background-color: transparent;
+    border: none;
+    color: black;
+}
+
+.citiesButton:hover{
+    background-color: #FF7A59;
+    color: white;
+    transform: scale(1.1);
+}
+
+.section4{
+    width: 100vw;
+    display: flex;
+    gap: 60px;
+    align-items: center;
+    justify-content: center;
+}
+
+.section4-text{
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    width: 500px;
+}
+
+.sections-description{
+    color:#444343;
+    line-height:180%; 
+    font-size:16px;
+    font-weight: 300;
+}
+
+.startButton{
+    width: 142px;
+    height: 38px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-transform: uppercase;
+    font-size: 16px;
+    border-radius: 6px;
+    background-color: #FF7A59;
+    border: none;
+    color: white;
+}
+
+.startButton:hover{
+    transform: scale(1.1);
+    cursor: pointer;
+}
+
+.landing-footer{
+    width: 100vw;
+    height: 356px;
+    align-self: flex-end;
+    background-color: black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.footer-text{
+    display: flex;
+    width: 77%;
+    justify-content: space-between;
+    margin-top: 50px;
+}
+
+.footer-tagline{
+    width: 354px;
+}
+
+.quick-links{
+    display: flex;
+    flex-direction: column;
+    width: 265px;
+}
+
+.quick-links h4{
+    font-size: 34px;
+    font-weight: 500;
+    line-height: 110%;
+    text-transform: uppercase;
+    color: white;
+}
+
+.quick-links ul li{
+    font-size: 16px;
+    line-height: 170%;
+    font-weight: 400;
+    color: white;
+    text-transform: capitalize;
+}
+
+.newsLetter{
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    width: 360px;
+}
+
+.newsLetter h4{
+    font-size: 34px;
+    font-weight: 500;
+    line-height: 110%;
+    text-transform: uppercase;
+    color: white;
+}
+
+.newsletter-box{
+    width: 360px;
+    height: 54px;
+    border: 1px solid white;
+    border-radius: 0 8px 8px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.newsLetter input{
+    width: 54%;
+    height: 90%;
+    padding: 0 16px;
+    background-color: transparent;
+    border: none;
+    outline: transparent;
+    color: white;
+}
+.startButton{
+    width: 165px;
+    height: 54px;
+}
+.socialMedia-icons{
+    display: flex;
+    gap: 16px;
+}
+
+.landing-footer h6{
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: white;
+    font-size: 13px;
+    font-weight: 300;
+}   
+
+/* For small devices (mobile) */
+@media only screen and (max-width: 480px) {
+    .main-boxx {
+        row-gap: 6rem;
+        width: 100vw;
+        align-items: center;
+        flex-wrap: nowrap;
+    }
+
+    .section1 {
+        height: 20rem;
+        width: 100%;
+        margin-top: 2rem;
+    }
+
+    .section1-tagline {
+        font-size: larger;
+        margin: 0 0 11rem 1.5rem;
+    }
+
+    .location-box {
+        width: 28rem;
+        height: 5rem;
+    }
+
+    .location-wrapper {
+        width: 18rem;
+        height: 3rem;
+    }
+
+    .location-wrapper input {
+        font-size: 1rem;
+    }
+
+    .location-wrapper button {
+        font-size: 1rem;
+    }
+
+    .section2 {
+        height: auto;
+        gap: 1rem;
+        padding: 0rem;
+    }
+
+    .sections-heading-box {
+        margin-left: 0rem;
+    }
+
+    .sections-heading {
+        font-size: larger;
+    }
+
+    .section2-text {
+        height: 240px;
+        width: 90%;
+        padding: 15px;
+        top: auto;
+        left: 0px;
+        position: relative;
+    }
+
+    .section2-text h4 {
+        font-size: 1.5rem;
+    }
+    .section2-text p{
+        font-size: 0.7rem;
+    }
+    .section3 {
+        gap: 25px;
+    }
+
+    .cities {
+        width: 100vw;
+        flex-direction: column;
+        gap: 1.5rem;
+        align-items: center;
+    }
+
+    .citiesButton {
+        width: 50%;
+        height: 3rem;
+        font-size: 1.5rem;
+    }
+
+    .section4 {
+        flex-direction: column;
+        gap: 0;
+        width: 100vw;
+        gap: 1rem;
+    }
+    .section4 img{
+        width: 100%;
+        height: auto;
+        object-fit: contain;
+    }
+    .section4-text {
+        width: 95%;
+        align-items: start;
+    }
+
+    .sections-description {
+        font-size: 1rem;
+    }
+    .section2-text a{
+        width: 100%;
+    }
+    .startButton {
+        width: 100%;
+        height: 2.5rem;
+        font-size: 1.2rem;
+    }
+
+    .landing-footer {
+        height: auto;
+        padding: 3rem 0;
+    }
+
+    .footer-text {
+        width: 90%;
+        flex-direction: column;
+        gap: 2.5rem;
+        margin-top: 2rem;
+    }
+
+    .footer-tagline, .quick-links, .newsLetter {
+        width: 100%;
+        text-align: start;
+    }
+
+    .quick-links h4, .newsLetter h4 {
+        font-size: 1.8rem;
+    }
+
+    .quick-links ul li, .newsLetter input {
+        font-size: 1.1rem;
+    }
+
+    .newsletter-box {
+        width: 100%;
+        height: 2.5rem;
+    }
+
+    .socialMedia-icons {
+        justify-content: center;
+    }
+
+    .landing-footer h6 {
+        font-size: 1rem;
+    }
+    .startButton{
+        width: 165px;
+        height: 41px;
+    }
+}
+
+/* For medium devices (tablets) */
+@media only screen and (min-width: 481px) and (max-width: 768px) {
+    .main-boxx {
+        row-gap: 6rem;
+        width: 100vw;
+        align-items: center;
+    }
+
+    .section1 {
+        height: 20rem;
+    }
+
+    .section1-tagline {
+        font-size: 2.5rem;
+        margin: 0 0 10rem 5rem;
+    }
+
+    .location-box {
+        width: 28rem;
+        height: 5rem;
+    }
+
+    .location-wrapper {
+        width: 18rem;
+        height: 3rem;
+    }
+
+    .location-wrapper input {
+        font-size: 1rem;
+    }
+
+    .location-wrapper button {
+        font-size: 1rem;
+    }
+
+    .section2 {
+        height: auto;
+        gap: 30px;
+        padding: 0rem;
+    }
+
+    .sections-heading-box {
+        margin-left: 0rem;
+    }
+
+    .sections-heading {
+        font-size: 2.5rem;
+    }
+
+    .section2-text {
+        height: 340px;
+        width: 90%;
+        padding: 15px;
+        top: auto;
+        left: 0px;
+        position: relative;
+    }
+
+    .section2-text h4 {
+        font-size: 2rem;
+    }
+
+    .section3 {
+        gap: 25px;
+    }
+
+    .cities {
+        width: 90vw;
+        flex-wrap: wrap;
+        gap: 1.5rem;
+        justify-content: center;
+    }
+
+    .citiesButton {
+        width: 50%;
+        height: 3rem;
+        font-size: 1.5rem;
+    }
+
+    .section4 {
+        flex-direction: column;
+        gap: 2.5rem;
+        width: 100vw;
+    }
+    .section4 img{
+        width: 100%;
+        height: 500px;
+    }
+    .section4-text {
+        width: 95%;
+        align-items: start;
+    }
+
+    .sections-description {
+        font-size: 1rem;
+    }
+    .section2-text a{
+        width: 100%;
+    }
+    .startButton {
+        width: 100%;
+        height: 3.5rem;
+        font-size: 1.2rem;
+    }
+
+    .landing-footer {
+        height: auto;
+        padding: 3rem 0;
+    }
+
+    .footer-text {
+        width: 90%;
+        flex-direction: column;
+        gap: 2.5rem;
+        margin-top: 2rem;
+    }
+
+    .footer-tagline, .quick-links, .newsLetter {
+        width: 100%;
+        text-align: start;
+    }
+
+    .quick-links h4, .newsLetter h4 {
+        font-size: 1.8rem;
+    }
+
+    .quick-links ul li, .newsLetter input {
+        font-size: 1.1rem;
+    }
+
+    .newsletter-box {
+        width: 100%;
+        height: 3.5rem;
+    }
+
+    .socialMedia-icons {
+        justify-content: center;
+    }
+
+    .landing-footer h6 {
+        font-size: 1rem;
+    }
+}
+@media only screen and (min-width: 769px) and (max-width: 1070px){
+    h3,h4,p{
+        margin: 0px;
+        padding: 0px;
+    }
+    .main-boxx{
+        width: 100vw;
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        align-items: center;
+        row-gap: 9.375rem;
+    }
+    
+    .section1{
+        width: 100%;
+        height: 42rem;
+        background-image: url('../assets/section1.png');
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        margin-top: 3rem;
+    }
+    
+    .section1-tagline{
+        color: white;
+        font-size: 3.8125rem;
+        margin: 0 0 12rem 10rem;
+        font-weight: bolder;
+        line-height: 110%;
+    }
+    
+    .location-box{
+        width: 42rem;
+        height: 7.25rem;
+        background-color: white;
+        border-radius: 6.25rem;
+        align-self: center;
+        margin-bottom: 1.5rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 1.5rem;
+        box-shadow: 0 0.1rem 0.5rem rgba(0, 0, 0, 0.20)
+    }
+    
+    .location-wrapper{
+        width: 26.1875rem;
+        height: 3.125rem;
+        border: 1px solid #FF7A59;
+        border-radius: 0.5rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+    }
+    
+    .location-wrapper input{
+        width: 55%;
+        height: 80%;
+        border: none;
+        outline: transparent;
+        padding-left: 1rem;
+    }
+    
+    .location-wrapper button{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        font-size: 1rem;
+        font-weight: 600;
+        color: #FF7A59;
+        text-transform: uppercase;
+        border: none;
+        background-color: transparent;
+    }
+    
+    .location-wrapper button:hover{
+       transform: scale(1.1);
+       cursor: pointer;
+    }
+    
+    .section2{
+        width: 100vw;
+        height: 725px;
+        display: flex;
+        flex-direction: column;
+        gap: 35px;
+    }
+    
+    .sections-heading-box{
+        display: flex;
+        align-items: center;
+        margin-left: 3rem;
+    }
+    
+    .bar{
+        background-color: #FF7A59;
+        width: 44px;
+        height: 6px;
+        transform: rotate(90deg)
+    }
+    
+    .sections-heading{
+        font-size: 40px;
+        font-weight: 700;
+        text-transform: uppercase;
+        line-height: 110%;
+    }
+    
+    
+    .section2-text{
+        width: 550px;
+        height: 300px;
+        border-radius: 16px;
+        background-color: white;
+        position: absolute;
+        top: 75rem;
+        left: 4.5rem;
+        display: flex;
+        flex-direction: column;
+        padding: 30px 50px;
+        justify-content: space-between;
+    }
+    
+    .section2-text h4{
+        font-size: 34px;
+        font-weight: 500;
+        line-height: 110%;
+        text-transform: uppercase;
+    }
+    
+    .section3{
+        width: 100vw;
+        display: flex;
+        flex-direction: column;
+        gap: 35px;
+    }
+    
+    .cities{
+        width: 80vw;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+    
+    .citiesButton{
+        width: 142px;
+        height: 38px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        align-self: center;
+        text-transform: capitalize;
+        font-size: 24px;
+        font-weight: 500;
+        border-radius: 6px;
+        background-color: transparent;
+        border: none;
+        color: black;
+    }
+    
+    .citiesButton:hover{
+        background-color: #FF7A59;
+        color: white;
+        transform: scale(1.1);
+    }
+    
+    .section4{
+        width: 100vw;
+        display: flex;
+        gap: 70px;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .section4-text{
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+        width: 400px;
+    }
+    .section4 img{
+        width: 40vw;
+    }
+    .sections-description{
+        color:#444343;
+        line-height:180%; 
+        font-size:16px;
+        font-weight: 300;
+    }
+    
+    .startButton{
+        width: 142px;
+        height: 38px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-transform: uppercase;
+        font-size: 16px;
+        border-radius: 6px;
+        background-color: #FF7A59;
+        border: none;
+        color: white;
+    }
+    
+    .startButton:hover{
+        transform: scale(1.1);
+        cursor: pointer;
+    }
+    
+    .landing-footer{
+        width: 100vw;
+        height: auto;
+        align-self: flex-end;
+        background-color: black;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .footer-text{
+        display: flex;
+        width: 77%;
+        justify-content: space-between;
+        margin-top: 50px;
+    }
+    
+    .footer-tagline{
+        width: 354px;
+    }
+    
+    .quick-links{
+        display: flex;
+        flex-direction: column;
+        width: 265px;
+    }
+    
+    .quick-links h4{
+        font-size: 34px;
+        font-weight: 500;
+        line-height: 110%;
+        text-transform: uppercase;
+        color: white;
+    }
+    
+    .quick-links ul li{
+        font-size: 16px;
+        line-height: 170%;
+        font-weight: 400;
+        color: white;
+        text-transform: capitalize;
+    }
+    
+    .newsLetter{
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+        width: 360px;
+    }
+    
+    .newsLetter h4{
+        font-size: 34px;
+        font-weight: 500;
+        line-height: 110%;
+        text-transform: uppercase;
+        color: white;
+    }
+    
+    .newsletter-box{
+        width: 360px;
+        height: 54px;
+        border: 1px solid white;
+        border-radius: 0 8px 8px 0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    
+    .newsLetter input{
+        width: 54%;
+        height: 90%;
+        padding: 0 16px;
+        background-color: transparent;
+        border: none;
+        outline: transparent;
+        color: white;
+    }
+    .startButton{
+        width: 165px;
+        height: 54px;
+    }
+    .socialMedia-icons{
+        display: flex;
+        gap: 16px;
+    }
+    
+    .landing-footer h6{
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        color: white;
+        font-size: 13px;
+        font-weight: 300;
+    }   
+    
+}

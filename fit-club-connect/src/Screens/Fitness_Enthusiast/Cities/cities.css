@@ -1,0 +1,132 @@
+.cityLine-mainBox{
+    width: 100%;
+    height: auto;
+    background-image: url("../../assets/cityBg.png");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 3.4rem;
+}
+
+.cityLine{
+    color: white;
+    font-size: 97px;
+    font-weight: 600;
+    letter-spacing: 3px;
+    text-transform: capitalize;
+    font-family: "Teko-Bold", Helvetica;
+}
+
+.fitnessBoxes{
+    width: 97%;
+    position: absolute;
+    top: 420px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    padding: 8px 24px;
+    gap: 24px;
+}
+
+.gymRender{
+    width: 275px;
+    height: auto;
+    box-shadow: 0 0.1rem 0.5rem rgba(0,0,0,.55);
+    background-color: white;
+    border-radius: 8px; 
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding-bottom: 8px;
+}
+
+.gymRender-picture{
+    width: 100%;
+    height: 270px;
+    object-fit: cover;
+    border-radius: 8px 8px 0px 0px;
+    box-shadow: 0 0.2px 1px rgba(0, 0, 0, .5);
+}
+
+.gymRender-name{
+    padding: 0px 10px;
+    margin: 0;
+    text-transform: capitalize;
+    font-size: large;
+    font-family: auto;
+    color: #28282B;
+}
+
+.gymRender:hover{
+   transform: scale(1.1);
+}
+@media only screen and (min-width: 281px) and (max-width: 728px){
+    .cityLine-mainBox{
+        width: 100%;
+        height: auto;
+        background-image: url("../../assets/cityBg.png");
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 2.5rem;
+    }
+    
+    .cityLine{
+        color: white;
+        font-size: 56px;
+        font-weight: 600;
+        letter-spacing: 3px;
+        text-transform: capitalize;
+        font-family: "Teko-Bold", Helvetica;
+    }
+    
+    .fitnessBoxes{
+        width: 80%;
+        position: absolute;
+        top: 372px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        padding: 8px 24px;
+        gap: 24px;
+    }
+    
+    .gymRender{
+        width: 275px;
+        height: auto;
+        box-shadow: 0 0.1rem 0.5rem rgba(0,0,0,.55);
+        background-color: white;
+        border-radius: 8px; 
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        padding-bottom: 8px;
+    }
+    
+    .gymRender-picture{
+        width: 100%;
+        height: 270px;
+        object-fit: cover;
+        border-radius: 8px 8px 0px 0px;
+        box-shadow: 0 0.2px 1px rgba(0, 0, 0, .5);
+    }
+    
+    .gymRender-name{
+        padding: 0px 10px;
+        margin: 0;
+        text-transform: capitalize;
+        font-size: large;
+        font-family: auto;
+        color: #28282B;
+    }
+    
+    .gymRender:hover{
+       transform: scale(1.1);
+    }
+}

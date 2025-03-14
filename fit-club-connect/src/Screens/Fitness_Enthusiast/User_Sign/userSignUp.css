@@ -1,0 +1,19 @@
+.otpBox{
+    display: flex;
+    gap: 10px;
+}
+
+.otpBox input{
+    width: 50px;
+    padding: 10px;
+    outline: none;
+    text-align: center;
+    border: 0.2px solid gray;
+    border-radius: 8px;
+}
+@media (max-width: 480px){
+    
+    .otpBox input{
+        width: 40px;
+    }
+}

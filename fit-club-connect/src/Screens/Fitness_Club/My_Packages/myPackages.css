@@ -1,0 +1,117 @@
+.club-side-title{
+    font-family: auto;
+    font-size: xx-large;
+    margin: 3.5rem 5rem;
+    text-transform: uppercase;
+    word-spacing: 3px;
+}
+
+.my-package-description {
+    position: absolute;
+    top: 49%;
+    left: 60%;
+    right: auto;
+    bottom: auto;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    border-radius: 10px;
+    outline: none;
+    max-width: 400px;
+    max-height: 650px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    padding-bottom: 1rem;
+    overflow-y: auto;
+    -ms-overflow-style: none;  
+    scrollbar-width: none; 
+}
+  
+.my-package-description-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
+.my-package-description img{
+    width: 100%;
+    border-radius: 10px;
+}
+
+.my-package-basic-info{
+    width: 90%;
+    height: auto;
+    backface-visibility: hidden;
+    background: rgba(255, 255, 255, 0.55);
+    border-radius: 12px;
+    box-shadow: 0 0.1rem 0.5rem rgba(0, 0, 0, .55);
+    backdrop-filter: blur(6.2px);
+    -webkit-backdrop-filter: blur(6.2px);
+    display: flex;
+    flex-direction: column;
+    padding: 15px;
+    box-sizing: border-box;
+    font-family: auto;
+    font-size: larger;
+    gap: 0.25rem;
+}
+
+.my-package-description-info{
+    width: 85%;
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    font-family: auto;
+    font-size: medium;
+}
+
+.my-packages-buttons{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.my-packages-buttons button{
+    width: 45%;
+}
+
+.update-section{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin: 1rem;
+    box-sizing: border-box;
+}
+
+.update-section input{
+    padding: 1rem;
+    border-radius: 8px;
+    border: 0.2px solid gray;
+}
+
+.update-section textarea{
+    padding: 0.5rem;
+    border-radius: 8px;
+    border: 0.2px solid gray;
+    height: 100px;
+    text-transform: capitalize;
+}
+@media (max-width: 750px){
+    .my-package-description {
+        left: 50%;
+    }
+}
+@media (max-width: 410px){
+    .my-package-description {
+        top: 54%;
+        left: 50%;
+        max-width: 340px;
+        height: 589px;
+    }
+}
