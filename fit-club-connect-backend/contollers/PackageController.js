@@ -1,14 +1,15 @@
 const packagesTable = require("../models/Packages")
+const cloudinary = require("../utils/cloudinary")
 
 const UploadPackage = async(request, response) => {
     try {
         const { gymID, packageName, duration, price, description } = request.body;
-        const packageProfile = request.file?.filename;
+        const packageProfile = cloudinary.uploader.upload(request.file?.path);
         const packageCheck = await packagesTable.findOne({ gymID, packageName });
         const durationInMonths = (duration)+ " Months"
         
         if (!packageCheck) {
-            const newPackage = new packagesTable({ gymID, packageName, duration:durationInMonths, price, description, packageProfile});
+            const newPackage = new packagesTable({ gymID, packageName, duration:durationInMonths, price, description, packageProfile:(await packageProfile).secure_url});
             await newPackage.save();
             response.send({ message: "Package uploaded successfully"+"\nWait for Approval Now" });
         } 
@@ -26,7 +27,7 @@ const UpdatePackageDetails = async(request, response) => {
     try{
         const packageId = request.params.id;
         const {packageName, duration, price, description} = request.body;
-        const updatedPackageProfile = request.file?.filename;
+        const updatedPackageProfile = cloudinary.uploader.upload(request.file?.path);
         const packageCheck = await packagesTable.findById({_id:packageId});
 
         if(packageCheck){
@@ -34,7 +35,7 @@ const UpdatePackageDetails = async(request, response) => {
             if(duration) packageCheck.duration = duration;
             if(price) packageCheck.price = price;
             if(description) packageCheck.description = description;
-            if (updatedPackageProfile) packageCheck.packageProfile = updatedPackageProfile;
+            if (updatedPackageProfile) packageCheck.packageProfile = (await updatedPackageProfile).secure_url;
 
             await packageCheck.save();
             response.send({message: "Package Details has been updated successfully"});

@@ -1,5 +1,6 @@
 const GenerateOTP = require("../middleware/OTP");
 const transporter = require("../middleware/Mail");
+const cloudinary = require("../utils/cloudinary");
 const AdminTable = require("../models/Admin");
 const fitnessTable = require("../models/FitnessClub");
 const RejectedClubTable = require("../models/RejectedClubs");
@@ -10,7 +11,8 @@ const SignUp = async (request, response) => {
   const SECREY_KEY = "FITCLUB2223";
   const { firstName, lastName, email, phoneNo, password, secretKey } =
     request.body;
-  const adminProfile = request.file?.filename;
+  const adminProfile = cloudinary.uploader.upload(request.file?.path);
+  console.log(await adminProfile);
   const OTP = GenerateOTP();
   console.log(`OTP for ${email} is ${OTP}`);
   const otpExpiry = new Date(Date.now() + 1 * 60 * 1000);
@@ -20,9 +22,7 @@ const SignUp = async (request, response) => {
     email,
     phoneNo,
     password,
-    adminProfile,
-    OTP,
-    otpExpiry,
+    adminProfile: (await adminProfile).secure_url,
   });
   const userCheck = await AdminTable.findOne({ email });
 
@@ -98,30 +98,31 @@ const SignIn = async (request, response) => {
   }
 };
 
-const ForgotPassword = async(request, response) => {
-  try{
-      const { email } = request.params;
-      const userCheck = await AdminTable.findOne({email})
-      if(userCheck){
-          const mailOptions = {
-              from: process.env.SMTP_MAIL,
-              to: email,
-              subject: "Reset Your Password for FitClub Connect",
-              text: `Hi ${userCheck.firstName} \nYour Password: ${userCheck.password}`
-          };
-          transporter.sendMail(mailOptions, function (error, info) {
-              if (error) console.log("Error in sending OTP: ", error);
-              else console.log("Forgot Password Sent Successfully",userCheck.password);
-          });
-          response.send({message: "Your Password has been sent at your mail successfully"})
-      }
-      else return response.send({message: "Email Not Found"})
+const ForgotPassword = async (request, response) => {
+  try {
+    const { email } = request.params;
+    const userCheck = await AdminTable.findOne({ email });
+    if (userCheck) {
+      const mailOptions = {
+        from: process.env.SMTP_MAIL,
+        to: email,
+        subject: "Reset Your Password for FitClub Connect",
+        text: `Hi ${userCheck.firstName} \nYour Password: ${userCheck.password}`,
+      };
+      transporter.sendMail(mailOptions, function (error, info) {
+        if (error) console.log("Error in sending OTP: ", error);
+        else
+          console.log("Forgot Password Sent Successfully", userCheck.password);
+      });
+      response.send({
+        message: "Your Password has been sent at your mail successfully",
+      });
+    } else return response.send({ message: "Email Not Found" });
+  } catch (error) {
+    console.log(error);
+    response.send({ message: "Internal Server Error" });
   }
-  catch(error) {
-      console.log(error)
-      response.send({message: "Internal Server Error"})
-  }
-}
+};
 
 const GetClubDetailsForApproval = (request, response) => {
   fitnessTable.find().then((data) => {
@@ -221,45 +222,53 @@ const PackageApproval = async (request, response) => {
   }
 };
 
-const PackageRejection = async(request, response) => {
-    const {packageID, adminID} = request.params;
-    const {remarks} = request.body;
+const PackageRejection = async (request, response) => {
+  const { packageID, adminID } = request.params;
+  const { remarks } = request.body;
 
-    try{
-        const packageCheck = await packagesTable.findOne({_id: packageID})
-        const {gymID, packageName, packageProfile} = packageCheck
-        if(packageCheck){
-            const package = new RejectedPackages({adminID, packageID, gymID, packageName, packageProfile, adminRemarks:remarks})
-            await package.save();
-            await packageCheck.deleteOne({_id: packageID})
-            return response.send({message: "Package has rejected and deleted"})
-        }
-        else return response.send({message: "Package has already rejected/not found"})
-    }
-
-    catch(error){
-        console.log(error)
-        response.send({message: "Internal Server Error"})
-    }
+  try {
+    const packageCheck = await packagesTable.findOne({ _id: packageID });
+    const { gymID, packageName, packageProfile } = packageCheck;
+    if (packageCheck) {
+      const package = new RejectedPackages({
+        adminID,
+        packageID,
+        gymID,
+        packageName,
+        packageProfile,
+        adminRemarks: remarks,
+      });
+      await package.save();
+      await packageCheck.deleteOne({ _id: packageID });
+      return response.send({ message: "Package has rejected and deleted" });
+    } else
+      return response.send({
+        message: "Package has already rejected/not found",
+      });
+  } catch (error) {
+    console.log(error);
+    response.send({ message: "Internal Server Error" });
+  }
 };
 
-const GetOverallPackageDetails = async(request, response) => {
-    const PackagesRejected = await RejectedPackages.find().populate("gymID")
-    const PackagesApproved = await packagesTable.find({isAdminVerified:true}).populate("gymID")
-    try{
-        const AllPackages = [...PackagesRejected, ...PackagesApproved]
-        const ApprovedPackagesLength = PackagesApproved.length;
-        const RejectedPackagesLength = PackagesRejected.length;
-        response.send({
-            AllPackages,
-            ApprovedPackagesLength,
-            RejectedPackagesLength
-        })
-    }
-    catch(error){
-        console.log(error)
-        response.send({message: "Internal Server Error"})
-    }
+const GetOverallPackageDetails = async (request, response) => {
+  const PackagesRejected = await RejectedPackages.find().populate("gymID");
+  const PackagesApproved = await packagesTable
+    .find({ isAdminVerified: true })
+    .populate("gymID");
+  try {
+    const AllPackages = [...PackagesRejected, ...PackagesApproved];
+    const ApprovedPackagesLength = PackagesApproved.length;
+    const RejectedPackagesLength = PackagesRejected.length;
+    response.send({
+      AllPackages,
+      ApprovedPackagesLength,
+      RejectedPackagesLength,
+    });
+  } catch (error) {
+    console.log(error);
+    response.send({ message: "Internal Server Error" });
+  }
 };
 
 module.exports = {
@@ -274,5 +283,5 @@ module.exports = {
   PackageApproval,
   PackageRejection,
   GetOverallPackageDetails,
-  ForgotPassword
+  ForgotPassword,
 };

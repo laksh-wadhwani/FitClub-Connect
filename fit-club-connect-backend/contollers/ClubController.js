@@ -1,5 +1,6 @@
 const GenerateOTP = require("../middleware/OTP")
 const transporter = require("../middleware/Mail")
+const cloudinary = require("../utils/cloudinary")
 const fitnessTable = require("../models/FitnessClub");
 const transaction = require("../models/Transaction");
 const userTable = require("../models/FitnessEnthusiasts");
@@ -47,7 +48,7 @@ const SignUpFlow1 = async(request, response) => {
 
 const SignUpFlow2 = async(request, response) => {
     const {email} = request.params;
-    const gymProfile = request.file?.filename
+    const gymProfile = cloudinary.uploader.upload(request.file?.path)
     const {firstName, lastName, phoneNo, password, gymName, cityName, address, gymEmail, gymPhoneNo} = request.body;
     const lowerCaseCityName = cityName.toLowerCase();
     const userCheck = await fitnessTable.findOne({email})
@@ -60,7 +61,7 @@ const SignUpFlow2 = async(request, response) => {
             if(gymName) userCheck.gymName=gymName;
             if(cityName) userCheck.cityName=lowerCaseCityName;
             if(address) userCheck.address=address;
-            if(gymProfile) userCheck.gymProfile=gymProfile;
+            if(gymProfile) userCheck.gymProfile= (await gymProfile).secure_url;
             if(gymEmail) userCheck.gymEmail = gymEmail;
             if(gymPhoneNo) userCheck.gymPhoneNo = gymPhoneNo;
             await userCheck.save();
@@ -163,7 +164,7 @@ const UpdateClubDetails = async(request, response) => {
         
         const gymID = request.params.id;
         const {firstName, lastName, email, phoneNo, currentPass, newPass, gymName, cityName, address} = request.body;
-        const gymProfileUpdated = request.file?.filename;
+        const gymProfileUpdated = cloudinary.uploader.upload(request.file?.path)
         const lowerCaseCityName = cityName.toLowerCase();
         const basicInfo = await fitnessTable.findById(gymID);
 
@@ -176,7 +177,7 @@ const UpdateClubDetails = async(request, response) => {
             if(gymName) basicInfo.gymName = gymName;
             if(cityName) basicInfo.cityName = lowerCaseCityName;
             if(address) basicInfo.address = address;
-            if(gymProfileUpdated) basicInfo.gymProfile = gymProfileUpdated;
+            if(gymProfileUpdated) basicInfo.gymProfile = (await gymProfileUpdated).secure_url;
             if(currentPass){
                  if(!isPasswordValid) return response.send({message: "Incorrect current password. Please try again."});
                  if(newPass) basicInfo.password = newPass;
@@ -259,13 +260,13 @@ const GetReceiptForProvider = async(request, response) => {
   };
 
 const UploadVideo = async(request, response) => {
-    const Workout_Video = request.file?.filename;
+    const Workout_Video = cloudinary.uploader.upload(request.file?.path);
     const {video_name, video_url} = request.body;
     const {gymID} = request.params;
     const condition = await WorkoutVideo.findOne({video_name})
     try{
         if(condition){
-            const VideoData = new WorkoutVideo({gymID, video_name, video_url, video:Workout_Video})
+            const VideoData = new WorkoutVideo({gymID, video_name, video_url, video:(await Workout_Video).secure_url})
             await VideoData.save();
             return response.send({message:"Video has been uploaded"})
         }
