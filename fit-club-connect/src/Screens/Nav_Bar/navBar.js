@@ -41,7 +41,7 @@ const NavBar = ({user, setLoginUser}) => {
                         {(user&&user._id)? 
                         <React.Fragment>
                             <div onClick={IsUserMenuVisible}>
-                                <img src={`http://localhost:9002/Enthusiasts/${user.UserProfile}`} alt="User Profile"/>
+                                <img src={`${user.UserProfile}`} alt="User Profile"/>
                                 <label>Hello <span style={{color:"#FF7A59"}}>{user.firstName}</span></label>
                             </div>
                             <button onClick={Logout}>Logout</button>

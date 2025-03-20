@@ -59,7 +59,7 @@ const UserSignUpFlow1 = () => {
 
     const Continue = () => {
         if(isEmailValid(email)){
-            axios.post("http://localhost:9002/Enthusiast/SignUpFlow1", {email})
+            axios.post("https://fit-club-connect-backend.vercel.app/Enthusiast/SignUpFlow1", {email})
             .then(response => {
                 if(response.data.message === 'User has already been Registered'){
                     toast.error(response.data.message)
@@ -77,7 +77,7 @@ const UserSignUpFlow1 = () => {
     }
 
     const Verify = () => {
-        axios.post("http://localhost:9002/Enthusiast/VerifyOTP", {finalOTP, email})
+        axios.post("https://fit-club-connect-backend.vercel.app/Enthusiast/VerifyOTP", {finalOTP, email})
         .then(response => {
             if(response.data.message === 'User has been registered successfully'){
                 toast.success(response.data.message)

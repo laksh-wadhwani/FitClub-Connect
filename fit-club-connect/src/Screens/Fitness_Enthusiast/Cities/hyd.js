@@ -8,7 +8,7 @@ const Hyderabad=()=>{
     const [gymDetails, setGymDetails] = useState([]);
     
     useEffect(()=>{
-        axios.get("http://localhost:9002/Club/GetClubDetails")
+        axios.get("https://fit-club-connect-backend.vercel.app/Club/GetClubDetails")
         .then(response => { 
             const filteredGyms = response.data.filter(gym => gym.cityName === 'hyderabad')
             setGymDetails(filteredGyms); 
@@ -34,7 +34,7 @@ const Hyderabad=()=>{
                     <div className="fitnessBoxes">
                     {gymDetails?.map(details => (
                         <div className="gymRender" key={details._id} onClick={() => HandleClubClick(details)}>
-                            <img className="gymRender-picture" src={`http://localhost:9002/Club/${details.gymProfile}`} alt="Gym's Profile"/>
+                            <img className="gymRender-picture" src={`${details.gymProfile}`} alt="Gym's Profile"/>
                             <h2 className="gymRender-name">{details.gymName}</h2>
                         </div>  
                     ))}

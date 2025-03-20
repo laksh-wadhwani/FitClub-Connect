@@ -24,7 +24,7 @@ const UserSignIn = ({ setLoginUser }) => {
     const Login = () => {
         const { email, password } = user;
         if (email && password) {
-            axios.post("http://localhost:9002/Enthusiast/SignIn", user)
+            axios.post("https://fit-club-connect-backend.vercel.app/Enthusiast/SignIn", user)
                 .then(response => {
                     if (response.data.message === 'Login Successful') {
                         toast.success(response.data.message);
@@ -44,7 +44,7 @@ const UserSignIn = ({ setLoginUser }) => {
 
     const ForgotPassword = () => {
         const { email } = user;
-        axios.post(`http://localhost:9002/Enthusiast/ForgotPassword/${email}`)
+        axios.post(`https://fit-club-connect-backend.vercel.app/Enthusiast/ForgotPassword/${email}`)
             .then(response => {
                 toast.success(response.data.message);
                 setIsForgot(false);

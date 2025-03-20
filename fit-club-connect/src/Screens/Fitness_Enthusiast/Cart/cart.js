@@ -18,7 +18,7 @@ const Cart=({user})=>{
 
     
     useEffect(()=>{
-        axios.get(`http://localhost:9002/Cart/GetCartDetailsForUser/${id}`)
+        axios.get(`https://fit-club-connect-backend.vercel.app/Cart/GetCartDetailsForUser/${id}`)
         .then(response => { setUserBoughtPackages(response.data) })
         .catch(error => { console.error("Getting error in fetching cart package details: "+error) })
     },[id, isRefresh]);
@@ -54,7 +54,7 @@ const Cart=({user})=>{
   };
 
     const handleDelete = cartPackageID => {
-      axios.delete(`http://localhost:9002/Cart/DeletePackageFromCart/${cartPackageID}`)
+      axios.delete(`https://fit-club-connect-backend.vercel.app/Cart/DeletePackageFromCart/${cartPackageID}`)
       .then(response => {
         toast.success(response.data.message)
         setRefresh(!isRefresh)
@@ -85,7 +85,7 @@ const Cart=({user})=>{
       })
 
       if(Receipt){
-        axios.post(`http://localhost:9002/Enthusiast/MakePayment/${userID}/${gymID}`,ReceiptData)
+        axios.post(`https://fit-club-connect-backend.vercel.app/Enthusiast/MakePayment/${userID}/${gymID}`,ReceiptData)
       .then(response => {
         toast.success(response.data.message)
         setRefresh(!isRefresh)
@@ -112,7 +112,7 @@ const Cart=({user})=>{
             {cart.packageDetails?.map(details => (
               <div className="cart-details" key={details._id}>
               <div className="packagePicture-packageDetails">
-                <img src={details.packageID?.packageProfile? `http://localhost:9002/ClubPackages/${details.packageID.packageProfile}`:'../NoImage.jpg'} alt="Package Profile"/>
+                <img src={details.packageID?.packageProfile? `${details.packageID.packageProfile}`:'../NoImage.jpg'} alt="Package Profile"/>
                 <div className="packageName-packageProvider">
                   <h4>{details.packageID.packageName}</h4>
                   <h5>{details.packageID.duration}</h5>

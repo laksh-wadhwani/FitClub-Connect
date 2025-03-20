@@ -31,7 +31,7 @@ const GymSignUpFlow3 = () => {
     };
 
     const Submit = () => {
-        axios.put(`http://localhost:9002/Club/AccountDetails/${email}`,{accounts})
+        axios.put(`https://fit-club-connect-backend.vercel.app/Club/AccountDetails/${email}`,{accounts})
         .then(response => {
             toast.success(response.data.message)
             setTimeout(() => {navigate("/GymSignIn")},2000)

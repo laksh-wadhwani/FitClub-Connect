@@ -25,7 +25,7 @@ const GymSignIn=({setGymUser})=>{
     const Login = () => {
         const {email, password} = user
         if(email || password){
-            axios.post("http://localhost:9002/Club/SignIn", user)
+            axios.post("https://fit-club-connect-backend.vercel.app/Club/SignIn", user)
             .then(response => {
                 if(response.data.message === 'Login Successful'){
                     toast.success(response.data.message)
@@ -47,7 +47,7 @@ const GymSignIn=({setGymUser})=>{
 
     const ForgotPassword = () => {
         const {email} = user
-        axios.post(`http://localhost:9002/Enthusiast/ForgotPassword/${email}`)
+        axios.post(`https://fit-club-connect-backend.vercel.app/ForgotPassword/${email}`)
         .then(response => {
             if(response.data.message === "Email Not Found"){
                 toast.error(response.data.message)

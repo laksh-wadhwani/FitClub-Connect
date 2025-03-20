@@ -26,7 +26,7 @@ function LandingPage() {
 
   const NewsLetter = () => {
     if(isEmailValid(newsLetter)){
-      axios.post("http://localhost:9002/NewsLetter", {newsLetter})
+      axios.post("https://fit-club-connect-backend.vercel.app/NewsLetter", {newsLetter})
       .then(response => {
         toast.success(response.data.message)
         setNewsLetter("")

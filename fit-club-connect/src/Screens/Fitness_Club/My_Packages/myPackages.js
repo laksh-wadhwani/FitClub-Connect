@@ -18,7 +18,7 @@ const MyPackages = ({gymUser}) => {
   const [file, setFile] = useState()
 
   useEffect(() => {
-    axios.get(`http://localhost:9002/Package/GetPackageDetails/${gymUser._id}`)
+    axios.get(`https://fit-club-connect-backend.vercel.app/Package/GetPackageDetails/${gymUser._id}`)
     .then(response => setPackageDetails(response.data))
     .catch(error => console.error("Getting Erorr in fetching package details: "+error))
   },[gymUser._id, refresh])
@@ -43,7 +43,7 @@ const MyPackages = ({gymUser}) => {
     const UpdatedPackageData = new FormData();
     Object.entries(updatePackage).forEach(([key, value]) => { UpdatedPackageData.append(key, value) });
     UpdatedPackageData.append("UpdatedPackageProfile",file);
-    axios.put(`http://localhost:9002/Package/UpdatePackageDetails/${packageId}`, UpdatedPackageData)
+    axios.put(`https://fit-club-connect-backend.vercel.app/Package/UpdatePackageDetails/${packageId}`, UpdatedPackageData)
     .then(response => {
       if(response.data.message === "Package Details has been updated successfully"){
         toast.success(response.data.message)
@@ -60,7 +60,7 @@ const MyPackages = ({gymUser}) => {
   }
 
   const DeletePackage = packageID => {
-    axios.delete(`http://localhost:9002/Package/DeletePackage/${packageID}`)
+    axios.delete(`https://fit-club-connect-backend.vercel.app/Package/DeletePackage/${packageID}`)
     .then(response => {
       if(response.data.message === "Package Deleted Successfully"){
         toast.success(response.data.message)
@@ -87,7 +87,7 @@ const MyPackages = ({gymUser}) => {
           {packageDetails?.map(details => (
             <>
             <div className="package-card" key={details._id}>
-            <img src={details.packageProfile? `http://localhost:9002/ClubPackages/${details.packageProfile}`:'./NoImage.jpg'} alt="Package Profile"/>
+            <img src={details.packageProfile? `${details.packageProfile}`:'./NoImage.jpg'} alt="Package Profile"/>
             <h3>{details.packageName}</h3>
             <div>
               <span>{details.duration}</span>
@@ -116,7 +116,7 @@ const MyPackages = ({gymUser}) => {
           </React.Fragment>
           :<React.Fragment>
             <img
-            src={details.packageProfile? `http://localhost:9002/ClubPackages/${details.packageProfile}`:'./NoImage.jpg'}
+            src={details.packageProfile? `${details.packageProfile}`:'./NoImage.jpg'}
             alt="Package Profile"
           />
           <div className="package-basic-info">

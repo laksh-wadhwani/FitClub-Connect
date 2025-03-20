@@ -13,11 +13,11 @@ const PackageApprovals = ({gymUser}) => {
   const [rejectedRemarks, setRemarks] = useState()
 
   useEffect(() => {
-    axios.get(`http://localhost:9002/Cart/GetCartDetailsForClub/${gymUser._id}`)
+    axios.get(`https://fit-club-connect-backend.vercel.app/Cart/GetCartDetailsForClub/${gymUser._id}`)
     .then(response => setDetails(response.data))
     .catch(error => console.error("Getting error in fetching cart approval details"+error))
 
-    axios.get(`http://localhost:9002/Club/GetReceiptForProvider/${gymUser._id}`)
+    axios.get(`https://fit-club-connect-backend.vercel.app/Club/GetReceiptForProvider/${gymUser._id}`)
     .then(response => setReceiptData(response.data))
     .catch(error => console.error("Getting error in fetching receipts data: "+error))
   },[gymUser._id, isRefresh])
@@ -31,7 +31,7 @@ const PackageApprovals = ({gymUser}) => {
   };
 
   const ApprovePackage = cartPackageID => {
-    axios.put(`http://localhost:9002/Cart/CartPackageApproval/${cartPackageID}`)
+    axios.put(`https://fit-club-connect-backend.vercel.app/Cart/CartPackageApproval/${cartPackageID}`)
     .then(response => {
       if(response.data.message === "Request has been approved successfully"){
         toast.success(response.data.message)
@@ -47,7 +47,7 @@ const PackageApprovals = ({gymUser}) => {
   }
   
   const RejectPackage = (cartPackageID, userID) => {
-    axios.delete(`http://localhost:9002/Cart/CartPackageReject/${cartPackageID}/${userID}`,{ params: {rejectedRemarks} })
+    axios.delete(`https://fit-club-connect-backend.vercel.app/Cart/CartPackageReject/${cartPackageID}/${userID}`,{ params: {rejectedRemarks} })
     .then(response => {
       if(response.data.message === "Package has been rejected"){
         toast.success(response.data.message)
@@ -64,7 +64,7 @@ const PackageApprovals = ({gymUser}) => {
   }
 
   const Acknowledgement = transactionID => {
-    axios.put(`http://localhost:9002/Club/PaymentAcknowledgement/${transactionID}`)
+    axios.put(`https://fit-club-connect-backend.vercel.app/Club/PaymentAcknowledgement/${transactionID}`)
     .then(response => {
       if(response.data.message === "Payment Acknowledged"){
         toast.success(response.data.message)
@@ -97,7 +97,7 @@ const PackageApprovals = ({gymUser}) => {
             onRequestClose={CloseModal}
             className="my-package-description"
             overlayClassName="my-package-description-overlay">
-              <img src={`http://localhost:9002/PaymentReceipts/${receipt.payment_receipt}`} alt="Payment Receipt"/>
+              <img src={`${receipt.payment_receipt}`} alt="Payment Receipt"/>
               {receipt.packageDetails?.map(packages => (
                  <div className="package-basic-info" key={packages._id}>
                   <h3>Package Name: {packages.packageID.packageName}</h3>
@@ -122,7 +122,7 @@ const PackageApprovals = ({gymUser}) => {
             {details.packageDetails?.map(packages => (
               <>
               <div className="package-card" key={packages._id}>
-              <img src={packages.packageID.packageProfile? `http://localhost:9002/ClubPackages/${packages.packageID.packageProfile}`:"./NoImage.jpg"} alt="Package Profile" />
+              <img src={packages.packageID.packageProfile? `${packages.packageID.packageProfile}`:"./NoImage.jpg"} alt="Package Profile" />
               <h3>{packages.packageID.packageName}</h3>
               <div>
                 <span>{packages.packageID.duration}</span>
@@ -147,7 +147,7 @@ const PackageApprovals = ({gymUser}) => {
             </React.Fragment>
             :<React.Fragment>
               <img
-              src={packages.packageID.packageProfile? `http://localhost:9002/ClubPackages/${packages.packageID.packageProfile}`:"./NoImage.jpg"}
+              src={packages.packageID.packageProfile? `${packages.packageID.packageProfile}`:"./NoImage.jpg"}
               alt="Package Profile"
             />
             <div className="package-basic-info">

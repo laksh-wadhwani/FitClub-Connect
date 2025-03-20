@@ -27,7 +27,7 @@ const UserProfile = ({user, setLoginUser}) => {
         const userUpdatedData = new FormData();
         Object.entries(updatedUser).forEach(([key,value]) => { userUpdatedData.append(key,value) })
         userUpdatedData.append("UserProfileUpdated",file)
-        axios.put(`http://localhost:9002/Enthusiast/UpdateUserDetails/${userID}`, userUpdatedData)
+        axios.put(`https://fit-club-connect-backend.vercel.app/Enthusiast/UpdateUserDetails/${userID}`, userUpdatedData)
         .then(response => {
             if(response.data.message === "Basic Info has been Updated Successfully"){
                 toast.success(response.data.message);

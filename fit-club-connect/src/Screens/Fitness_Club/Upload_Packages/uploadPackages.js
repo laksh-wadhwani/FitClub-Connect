@@ -31,7 +31,7 @@ const UploadPackages=({gymUser})=>{
         packagesData.append("PackageProfile",image);
         const {packageName, duration, price, description} = packageDetails;
         if(packageName&&duration&&price&&description){
-             axios.post("http://localhost:9002/Package/UploadPackage", packagesData)
+             axios.post("https://fit-club-connect-backend.vercel.app/Package/UploadPackage", packagesData)
              .then(response=> {
                 if(response.data.message === "Package already exists for this GYM"){
                     toast.error(response.data.message)

@@ -133,7 +133,7 @@ const UserSignUpFlow2 = () => {
         UserRegisteredData.append("UserProfile", image);
         const { firstName, lastName, phoneNo, password } = user;
         if (isFirstLastNameValid(firstName) && isFirstLastNameValid(lastName) && isPhoneNoValid(phoneNo) && isPasswordValid(password) && image) {
-            axios.put(`http://localhost:9002/Enthusiast/SignUpFlow2/${email}`, UserRegisteredData)
+            axios.put(`https://fit-club-connect-backend.vercel.app/Enthusiast/SignUpFlow2/${email}`, UserRegisteredData)
                 .then((response) => {
                     toast.success(response.data.message);
                     setTimeout(() => {navigate("/UserSignIn");},2000)

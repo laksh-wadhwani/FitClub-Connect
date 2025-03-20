@@ -20,7 +20,7 @@ const Workout = ({ gymUser }) => {
     const [videoData, setVideoData] = useState();
 
     useEffect(() => {
-        axios.get(`http://localhost:9002/Club/GetWorkoutVideo/${gymUser._id}`)
+        axios.get(`https://fit-club-connect-backend.vercel.app/Club/GetWorkoutVideo/${gymUser._id}`)
             .then(response => setVideoData(response.data))
             .catch(error => console.error("Error retrieving workout video: " + error));
     }, [gymUser._id, refresh]);
@@ -56,7 +56,7 @@ const Workout = ({ gymUser }) => {
         const VideoData = new FormData();
         Object.entries(data).forEach(([key, value]) => { VideoData.append(key, value) });
         VideoData.append("Workout_Video", video);
-        axios.post(`http://localhost:9002/Club/UploadVideo/${gymUser._id}`, VideoData)
+        axios.post(`https://fit-club-connect-backend.vercel.app/Club/UploadVideo/${gymUser._id}`, VideoData)
             .then(response => {
                 if(response.data.message === "Video has been uploaded"){
                     toast.success(response.data.message);
@@ -92,7 +92,7 @@ const Workout = ({ gymUser }) => {
                                     onRequestClose={CloseModal}
                                     className="workout-video-modal"
                                     overlayClassName="workout-modal-overlay">
-                                    <ReactPlayer url={videos.video ? `http://localhost:9002/WorkoutVideos/${videos.video}` : `http://localhost:9002/WorkoutVideos/${videos.video_url}`} width='100%' height='100%' controls={true} />
+                                    <ReactPlayer url={videos.video ? `${videos.video}` : `${videos.video_url}`} width='100%' height='100%' controls={true} />
                                 </Modal>
                             </div>
                         ))}
@@ -109,7 +109,7 @@ const Workout = ({ gymUser }) => {
                 <div className="qr-code-section">
                     {currentVideo && (
                         <QRCodeCanvas
-                            value={currentVideo.video? `http://localhost:9002/WorkoutVideos/${currentVideo.video}`:`${currentVideo.video_url}`} 
+                            value={currentVideo.video? `${currentVideo.video}`:`${currentVideo.video_url}`} 
                             size={256}
                         />
                     )}

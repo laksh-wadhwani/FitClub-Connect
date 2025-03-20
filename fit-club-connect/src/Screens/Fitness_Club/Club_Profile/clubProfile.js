@@ -32,7 +32,7 @@ const ClubProfile=({gymUser, setGymUser})=>{
         const gymUpdatedData = new FormData();
         Object.entries(updateUser).forEach(([key,value]) => { gymUpdatedData.append(key,value) })
         gymUpdatedData.append("GymProfileUpdated",image)
-        axios.put(`http://localhost:9002/Club/UpdateClubDetails/${gymUser._id}`, gymUpdatedData)
+        axios.put(`https://fit-club-connect-backend.vercel.app/Club/UpdateClubDetails/${gymUser._id}`, gymUpdatedData)
         .then(response => {
             if(response.data.message === "Basic Info has been Updated Successfully"){
                 toast.success(response.data.message);

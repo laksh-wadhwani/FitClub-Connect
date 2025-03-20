@@ -17,7 +17,7 @@ const Packages = ({user}) => {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:9002/Package/GetPackageDetails/${id}`)
+      .get(`https://fit-club-connect-backend.vercel.app/Package/GetPackageDetails/${id}`)
       .then((response) => setDetails(response.data));
   }, [id]);
 
@@ -31,7 +31,7 @@ const Packages = ({user}) => {
 
   const HandleSubscribe = packageId => {
     if(IsSignedIn){
-      axios.post(`http://localhost:9002/Cart/AddToCart/${user._id}/${packageId}/${id}`)
+      axios.post(`https://fit-club-connect-backend.vercel.app/Cart/AddToCart/${user._id}/${packageId}/${id}`)
       .then(response => {
         toast.success(response.data.message)
         setIsOpen(false)
@@ -52,7 +52,7 @@ const Packages = ({user}) => {
       >
         <div className="gym-info-box">
           <img
-            src={`http://localhost:9002/Club/${clubDetails?.gymProfile}`}
+            src={`https://fit-club-connect-backend.vercel.app/Club/${clubDetails?.gymProfile}`}
             alt="Gym Profile"
           />
           <div className="info-box-details">
@@ -89,7 +89,7 @@ const Packages = ({user}) => {
                     key={details._id}
                   >
                     <img
-                      src={details.packageProfile? `http://localhost:9002/ClubPackages/${details.packageProfile}`:"../NoImage.jpg"}
+                      src={details.packageProfile? `${details.packageProfile}`:"../NoImage.jpg"}
                       alt="Package Profile"
                     />
                     <h3>{details.packageName}</h3>
@@ -108,7 +108,7 @@ const Packages = ({user}) => {
                     overlayClassName="package-description-overlay"
                   >
                     <img
-                      src={details.packageProfile? `http://localhost:9002/ClubPackages/${details.packageProfile}`:"../NoImage.jpg"}
+                      src={details.packageProfile? `${details.packageProfile}`:"../NoImage.jpg"}
                       alt="Package Profile"
                     />
                     <div className="package-basic-info">

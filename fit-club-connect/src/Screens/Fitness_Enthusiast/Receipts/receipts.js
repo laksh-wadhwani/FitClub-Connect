@@ -10,7 +10,7 @@ const Receipts = ({user}) => {
     const buttoneName = isPaymentApproved? 'Payment Approved':'Payment Pending'
 
     useEffect(() => {
-        axios.get(`http://localhost:9002/Enthusiast/GetReceiptForConsumer/${user._id}`)
+        axios.get(`https://fit-club-connect-backend.vercel.app/Enthusiast/GetReceiptForConsumer/${user._id}`)
         .then(response => setReceiptData(response.data))
         .catch(error => console.error("Getting error in fetching receipt data: "+error))
     }, [user._id])

@@ -85,7 +85,7 @@ const Dashboard = ({ gymUser, setGymUser }) => {
 
         <div className="user-info">
           <img
-            src={`http://localhost:9002/Club/${gymUser?.gymProfile}`}
+            src={`${gymUser?.gymProfile}`}
             alt="Gym Profile"
           />
           <label>Hello, {gymUser?.firstName}</label>
