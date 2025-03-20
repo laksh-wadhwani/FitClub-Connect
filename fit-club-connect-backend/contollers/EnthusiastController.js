@@ -1,6 +1,6 @@
 const GenerateOTP = require("../middleware/OTP")
 const transporter = require("../middleware/Mail")
-const cloudinary = require("../utils/cloudinary")
+const {uploadToCloudinary} = require("../utils/cloudinary")
 const userTable = require("../models/FitnessEnthusiasts");
 const fitnessTable = require("../models/FitnessClub");
 const cartTable = require("../models/Cart");
@@ -53,7 +53,7 @@ const SignUpFlow1 = async(request, response) => {
 const SignUpFlow2 = async(request, response) => {
     const {email} = request.params;
     const {firstName, lastName, phoneNo, password} = request.body;
-    const UserProfile = cloudinary.uploader.upload(request.file?.path)
+    const UserProfile = uploadToCloudinary(request.file.buffer)
     const userCheck = await userTable.findOne({email})
     try{
         if(userCheck){
@@ -61,7 +61,7 @@ const SignUpFlow2 = async(request, response) => {
             if(lastName) userCheck.lastName=lastName;
             if(phoneNo) userCheck.phoneNo=phoneNo;
             if(password) userCheck.password=password;
-            if(UserProfile) userCheck.UserProfile = (await UserProfile).secure_url;
+            if(UserProfile) userCheck.UserProfile = UserProfile;
             await userCheck.save();
             return response.send({message:"Fitness Enthusiast has been registerd us successfully"+"\nYou can sign in now"})
         }
@@ -154,7 +154,7 @@ const ForgotPassword = async(request, response) => {
 const MakePayment = async(request, response) => {
     const {userID, gymID} = request.params;
     const {packageIDs} = request.body;
-    const payment_receipt = cloudinary.uploader.upload(request.file?.path);
+    const payment_receipt = uploadToCloudinary(request.file.buffer);
     const condition = await transaction.findById(userID, gymID)
     const packageLength = (packageIDs.length===24)? true: false;
     const userCheck = await fitnessTable.findById(gymID)
@@ -163,12 +163,12 @@ const MakePayment = async(request, response) => {
     try{
       if(!condition){
         if(packageLength){
-          const singleTransaction = new transaction({userID, gymID, packageDetails: [{packageID: packageIDs}], payment_receipt:(await payment_receipt).secure_url})
+          const singleTransaction = new transaction({userID, gymID, packageDetails: [{packageID: packageIDs}], payment_receipt})
           await singleTransaction.save();
         }
         else{
           const packageDetails = packageIDs?.map(packageID => ({packageID}))
-          const multipleTransaction = new transaction({userID, gymID, packageDetails, payment_receipt:(await payment_receipt).secure_url})
+          const multipleTransaction = new transaction({userID, gymID, packageDetails, payment_receipt})
           await multipleTransaction.save();
         }
         const mailOptions = {
@@ -209,7 +209,7 @@ const MakePayment = async(request, response) => {
         
         const {userID} = request.params;
         const {firstName, lastName, email, phoneNo, currentPass, newPass} = request.body;
-        const userProfileUpdated = cloudinary.uploader.upload(request.file?.path);
+        const userProfileUpdated = uploadToCloudinary(request.file.buffer);
         const basicInfo = await userTable.findById(userID);
 
         if(basicInfo){
@@ -218,7 +218,7 @@ const MakePayment = async(request, response) => {
             if(lastName) basicInfo.lastName = lastName;
             if(email) basicInfo.email = email;
             if(phoneNo) basicInfo.phoneNo = phoneNo;
-            if(userProfileUpdated) basicInfo.UserProfile = (await userProfileUpdated).secure_url;
+            if(userProfileUpdated) basicInfo.UserProfile = userProfileUpdated;
             if(currentPass){
                  if(!isPasswordValid) return response.send({message: "Incorrect current password. Please try again."});
                  if(newPass) basicInfo.password = newPass;

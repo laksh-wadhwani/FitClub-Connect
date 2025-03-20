@@ -6,4 +6,16 @@ cloudinary.config({
     api_secret: process.env.API_SECRET,
 })
 
-module.exports = cloudinary;
+const uploadToCloudinary = fileBuffer => {
+    return new Promise((resolve, reject) => {
+        cloudinary.uploader.upload_stream((error, result) => {
+            if(error){
+                console.log("Error in Uploading to cloudinaty")
+                reject(error)
+            }
+            else resolve(result.secure_url)
+        }).end(fileBuffer)
+    })
+}
+
+module.exports = {uploadToCloudinary};

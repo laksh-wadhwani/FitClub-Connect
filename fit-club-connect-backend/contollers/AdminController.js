@@ -1,6 +1,6 @@
 const GenerateOTP = require("../middleware/OTP");
 const transporter = require("../middleware/Mail");
-const cloudinary = require("../utils/cloudinary");
+const {uploadToCloudinary} = require("../utils/cloudinary");
 const AdminTable = require("../models/Admin");
 const fitnessTable = require("../models/FitnessClub");
 const RejectedClubTable = require("../models/RejectedClubs");
@@ -11,7 +11,7 @@ const SignUp = async (request, response) => {
   const SECREY_KEY = "FITCLUB2223";
   const { firstName, lastName, email, phoneNo, password, secretKey } =
     request.body;
-  const adminProfile = cloudinary.uploader.upload(request.file?.path);
+  const adminProfile = uploadToCloudinary(request.file.buffer);
   console.log(await adminProfile);
   const OTP = GenerateOTP();
   console.log(`OTP for ${email} is ${OTP}`);
@@ -22,7 +22,7 @@ const SignUp = async (request, response) => {
     email,
     phoneNo,
     password,
-    adminProfile: (await adminProfile).secure_url,
+    adminProfile: adminProfile
   });
   const userCheck = await AdminTable.findOne({ email });
 

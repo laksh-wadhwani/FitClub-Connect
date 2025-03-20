@@ -15,9 +15,9 @@ const {
   GetOverallPackageDetails,
   ForgotPassword
 } = require("../contollers/AdminController");
-const { UploadAdminProfile } = require("../middleware/Multer");
+const upload = require("../middleware/Multer");
 
-router.post("/SignUp", UploadAdminProfile.single("AdminProfile"), SignUp);
+router.post("/SignUp", upload.single("AdminProfile"), SignUp);
 router.post("/VerifyOTP", VerifyOTP);
 router.post("/SignIn", SignIn);
 router.post("/ForgotPassword/:email", ForgotPassword)
