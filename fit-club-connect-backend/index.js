@@ -23,6 +23,11 @@ mongoose.connect(process.env.DB_URI,{
     console.log("Unable to connect Server and/or MongoDB", error);
 });
 
+//Default Route
+app.get("/", (req, res) => {
+    res.json("Backend is working")
+})
+
 
 // GYM Routes
 const ClubRouter = require("./routes/ClubRoutes")
