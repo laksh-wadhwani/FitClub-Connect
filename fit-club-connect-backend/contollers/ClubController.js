@@ -11,13 +11,14 @@ const SignUpFlow1 = async(request, response) => {
         const {email} = request.body;
         const OTP = GenerateOTP();
         console.log(`OTP for ${email} is ${OTP}`)
-        const otpExpiry = new Date(Date.now()+1*60*1000);
+        const otpExpiry = new Date(Date.now() + 1*60*1000);
         const newFitnessUser = new fitnessTable({email, OTP, otpExpiry})
         const userCheck = await fitnessTable.findOne({email})
 
         try{
             if(!userCheck){
                 const otpExpiryInMinutes = Math.ceil((otpExpiry - Date.now()) / (1000 * 60));
+                 
                 const mailOptions = {
                     from: process.env.SMTP_MAIL,
                     to: email,
@@ -28,14 +29,20 @@ const SignUpFlow1 = async(request, response) => {
                     if (error) console.log("Error in sending OTP: ", error);
                     else console.log("OTP sent successfully");
                 });
+
                 await newFitnessUser.save();
-                response.send({message:"Please Enter OTP to get registered"});
-                if(fitnessTable.isVerified){
-                    setTimeout(async () => {
-                        await fitnessTable.findOneAndDelete({ email });
-                        console.log("User deleted due to OTP expiration")
-                    }, otpExpiry - Date.now());
-                }
+                response.send({
+                    message:`Please enter your OTP to get registered. We have sent it to your email.`
+                });
+
+                setTimeout(async () => {
+                    const user = await fitnessTable.findOne({email})
+                    if(user&&!user.isVerified){
+                        await fitnessTable.findOneAndDelete({email})
+                        console.log("User deleted due to otp expiration")
+                    }
+                }, otpExpiry - Date.now())
+                
             }
             else return response.send({message:"User Already Exist"})
         }

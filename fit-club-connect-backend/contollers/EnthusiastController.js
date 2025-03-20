@@ -16,7 +16,6 @@ const SignUpFlow1 = async(request, response) => {
         const userCheck = await userTable.findOne({ email });
 
         if(!userCheck){
-            console.log(`OTP for ${email}:${OTP}`);
             const otpExpiryInMinutes = Math.ceil((otpExpiry - Date.now()) / (1000 * 60));
             const mailOptions = {
                 from: process.env.SMTP_MAIL,
@@ -30,14 +29,15 @@ const SignUpFlow1 = async(request, response) => {
             });
 
             await newUser.save();
-            response.send({ message: "Please enter OTP to get registered" });
+            response.send({ message: "Please enter your OTP to get registered. We have sent it to your email." });
 
-            if (userTable.isVerified) {
-                setTimeout(async () => {
-                    await userTable.findOneAndDelete({ email });
-                    console.log("User deleted due to OTP expiration");
-                }, otpExpiry - Date.now());
-            }
+            setTimeout(async () => {
+                const user = await fitnessTable.findOne({email})
+                if(user&&!user.isVerified){
+                    await fitnessTable.findOneAndDelete({email})
+                    console.log("User deleted due to otp expiration")
+                }
+            }, otpExpiry - Date.now())
 
         }
         else {
