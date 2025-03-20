@@ -52,7 +52,7 @@ const Packages = ({user}) => {
       >
         <div className="gym-info-box">
           <img
-            src={`https://fit-club-connect-backend.vercel.app/Club/${clubDetails?.gymProfile}`}
+            src={`${clubDetails?.gymProfile}`}
             alt="Gym Profile"
           />
           <div className="info-box-details">
