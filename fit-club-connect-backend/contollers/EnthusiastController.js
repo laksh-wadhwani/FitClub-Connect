@@ -53,7 +53,7 @@ const SignUpFlow1 = async(request, response) => {
 const SignUpFlow2 = async(request, response) => {
     const {email} = request.params;
     const {firstName, lastName, phoneNo, password} = request.body;
-    const UserProfile = uploadToCloudinary(request.file.buffer)
+    const UserProfile = await uploadToCloudinary(request.file.buffer)
     const userCheck = await userTable.findOne({email})
     try{
         if(userCheck){
