@@ -4,7 +4,7 @@ const {uploadToCloudinary} = require("../utils/cloudinary")
 const UploadPackage = async(request, response) => {
     try {
         const { gymID, packageName, duration, price, description } = request.body;
-        const packageProfile = uploadToCloudinary(request.file.buffer);
+        const packageProfile = await uploadToCloudinary(request.file.buffer);
         const packageCheck = await packagesTable.findOne({ gymID, packageName });
         const durationInMonths = (duration)+ " Months"
         
