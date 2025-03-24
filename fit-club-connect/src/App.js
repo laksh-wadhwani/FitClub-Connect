@@ -26,7 +26,7 @@ import AboutUs from './Screens/About Us/aboutUs'
 import Receipts from './Screens/Fitness_Enthusiast/Receipts/receipts';
 import UserProfile from './Screens/Fitness_Enthusiast/User_Profile/userProfile'
 import Workout from './Screens/Fitness_Club/Workout_Videos/workout';
-import {BackendProvider} from "../src/BackendContext"
+import { BackendProvider } from './BackendContext';
 function App() {
 
   const [gymUser, setGymUser] = useState(
