@@ -6,9 +6,9 @@ export const BackendProvider = ({children}) => {
     const backendURL = process.env.BACKEND_URL || "https://fitclub-connect-production.up.railway.app";
 
     return(
-        <BackendContext value={backendURL}>
+        <BackendContext.Provider value={backendURL}>
             {children}
-        </BackendContext>
+        </BackendContext.Provider>
     )
 }
 
