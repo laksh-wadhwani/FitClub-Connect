@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "./landingPage.css";
 import { Link } from "react-router-dom";
 import axios from "axios";
-import { BackendURL } from "../../../BackendContext";
+import { BackendURL } from "../../BackendContext";
 import { toast, ToastContainer } from "react-toastify";
 
 function LandingPage() {
