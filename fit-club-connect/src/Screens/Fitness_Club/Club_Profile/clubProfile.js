@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import "./clubProfile.css"
-import {BackendURL} from "../../../BackendContext"
 import axios from "axios";
 import { toast, ToastContainer } from "react-toastify";
+import { BackendURL } from "../../../BackendContext";
 
 const ClubProfile=({gymUser, setGymUser})=>{
 
-    const API = BackendURL();
+    const API = BackendURL
     const [updateUser, setUpdateUser] = useState({
         firstName: "",
         lastName: "",
