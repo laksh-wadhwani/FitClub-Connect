@@ -32,10 +32,10 @@ const SignUpFlow1 = async(request, response) => {
             response.send({ message: "Please enter your OTP to get registered. We have sent it to your email." });
 
             setTimeout(async () => {
-                const user = await fitnessTable.findOne({email})
+                const user = await userTable.findOne({email})
                 if(user&&!user.isVerified){
-                    await fitnessTable.findOneAndDelete({email})
-                    console.log("User deleted due to otp expiration")
+                    await userTable.findOneAndDelete({email})
+                    response.send({message: "User deleted due to otp expiration"})
                 }
             }, otpExpiry - Date.now())
 
