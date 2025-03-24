@@ -35,7 +35,7 @@ const SignUpFlow1 = async(request, response) => {
                 const user = await userTable.findOne({email})
                 if(user&&!user.isVerified){
                     await userTable.findOneAndDelete({email})
-                    response.send({message: "User deleted due to otp expiration"})
+                    response.send({ message: "User deleted due to otp expiration" })
                 }
             }, otpExpiry - Date.now())
 
