@@ -154,7 +154,7 @@ const ForgotPassword = async(request, response) => {
 const MakePayment = async(request, response) => {
     const {userID, gymID} = request.params;
     const {packageIDs} = request.body;
-    const payment_receipt = uploadToCloudinary(request.file.buffer);
+    const payment_receipt = await uploadToCloudinary(request.file.buffer);
     const condition = await transaction.findById(userID, gymID)
     const packageLength = (packageIDs.length===24)? true: false;
     const userCheck = await fitnessTable.findById(gymID)
