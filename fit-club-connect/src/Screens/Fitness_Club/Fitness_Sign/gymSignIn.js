@@ -1,12 +1,14 @@
 import React, { useState } from "react";
 import './gymSignIn.css';
 import axios from "axios";
+import BackendURL from "../../../BackendContext"
 import { useNavigate } from "react-router-dom";
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 const GymSignIn=({setGymUser})=>{
 
+    const API = BackendURL();
     const navigate = useNavigate();
     const [isForgot, setIsForgot] = useState(false)
     const [user, setUser] = useState({
@@ -25,7 +27,7 @@ const GymSignIn=({setGymUser})=>{
     const Login = () => {
         const {email, password} = user
         if(email || password){
-            axios.post("https://fit-club-connect-backend.vercel.app/Club/SignIn", user)
+            axios.post(`${API}/Club/SignIn`, user)
             .then(response => {
                 if(response.data.message === 'Login Successful'){
                     toast.success(response.data.message)
@@ -47,7 +49,7 @@ const GymSignIn=({setGymUser})=>{
 
     const ForgotPassword = () => {
         const {email} = user
-        axios.post(`https://fit-club-connect-backend.vercel.app/ForgotPassword/${email}`)
+        axios.post(`${API}/ForgotPassword/${email}`)
         .then(response => {
             if(response.data.message === "Email Not Found"){
                 toast.error(response.data.message)

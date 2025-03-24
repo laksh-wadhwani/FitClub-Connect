@@ -1,10 +1,13 @@
 import React, { useState } from "react";
 import "./gymSignUp.css";
+import BackendURL from "../../../BackendContext"
 import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 import { toast, ToastContainer } from "react-toastify";
 
 const GymSignUpFlow2 = () => {
+
+  const API = BackendURL();
   const {email} = useParams();
   const navigate = useNavigate();
   const [isNext, setIsNext] = useState(false);
@@ -160,7 +163,7 @@ const handleFileChange = (event) => {
     gymRegistereData.append("GymProfile",image)
     const {firstName, lastName,phoneNo, password, gymName, cityName, address, gymEmail, gymPhoneNo} = user;
     if(isFirstLastNameValid(firstName) && isFirstLastNameValid(lastName) && isPhoneNoValid(phoneNo) && isPasswordValid(password) && gymName && cityName && address && gymEmail && gymPhoneNo && image){
-      axios.put(`https://fit-club-connect-backend.vercel.app/Club/SignUpFlow2/${email}`, gymRegistereData)
+      axios.put(`${API}/Club/SignUpFlow2/${email}`, gymRegistereData)
       .then(response => {
         toast.success(response.data.message)
         navigate(`/GymSignUpFlow3/${email}`)

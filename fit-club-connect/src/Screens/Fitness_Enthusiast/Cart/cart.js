@@ -2,11 +2,14 @@ import React, { useEffect, useState } from "react";
 import "./cart.css";
 import { useParams } from "react-router-dom";
 import axios from "axios";
+import BackendURL from "../../../BackendContext"
 import  Modal  from "react-modal";
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 const Cart=({user})=>{
+
+    const API = BackendURL();
     const { id } = useParams();
     const [modalIsOpen, setIsOpen] = useState(false);
     const [isRefresh, setRefresh] = useState(false)
@@ -18,7 +21,7 @@ const Cart=({user})=>{
 
     
     useEffect(()=>{
-        axios.get(`https://fit-club-connect-backend.vercel.app/Cart/GetCartDetailsForUser/${id}`)
+        axios.get(`${API}/Cart/GetCartDetailsForUser/${id}`)
         .then(response => { setUserBoughtPackages(response.data) })
         .catch(error => { console.error("Getting error in fetching cart package details: "+error) })
     },[id, isRefresh]);

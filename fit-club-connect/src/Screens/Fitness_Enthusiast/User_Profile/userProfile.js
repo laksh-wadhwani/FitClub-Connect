@@ -2,9 +2,11 @@ import React, { useState } from "react";
 import "./userProfile.css"
 import axios from "axios";
 import { toast, ToastContainer } from "react-toastify";
+import BackendURL from "../../../BackendContext"
 
 const UserProfile = ({user, setLoginUser}) => {
 
+    const API = BackendURL();
     const [updatedUser, setUser] = useState({
         firstName: "",
         lastName: "",
@@ -27,7 +29,7 @@ const UserProfile = ({user, setLoginUser}) => {
         const userUpdatedData = new FormData();
         Object.entries(updatedUser).forEach(([key,value]) => { userUpdatedData.append(key,value) })
         userUpdatedData.append("UserProfileUpdated",file)
-        axios.put(`https://fit-club-connect-backend.vercel.app/Enthusiast/UpdateUserDetails/${userID}`, userUpdatedData)
+        axios.put(`${API}/Enthusiast/UpdateUserDetails/${userID}`, userUpdatedData)
         .then(response => {
             if(response.data.message === "Basic Info has been Updated Successfully"){
                 toast.success(response.data.message);

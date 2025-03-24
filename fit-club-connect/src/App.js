@@ -26,7 +26,7 @@ import AboutUs from './Screens/About Us/aboutUs'
 import Receipts from './Screens/Fitness_Enthusiast/Receipts/receipts';
 import UserProfile from './Screens/Fitness_Enthusiast/User_Profile/userProfile'
 import Workout from './Screens/Fitness_Club/Workout_Videos/workout';
-
+import {BackendProvider} from "../src/BackendContext"
 function App() {
 
   const [gymUser, setGymUser] = useState(
@@ -48,7 +48,7 @@ function App() {
     },[user])
 
   return (
-  <>
+  <BackendProvider>
   <Router>
     {(gymUser&&gymUser._id)? 
     (<>
@@ -86,7 +86,7 @@ function App() {
     </>)
     }
   </Router>
-  </>
+  </BackendProvider>
   );
 }
 

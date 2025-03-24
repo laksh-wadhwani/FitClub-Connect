@@ -1,10 +1,13 @@
 import React, { useEffect, useState } from "react";
 import "./myPackages.css";
 import Modal from "react-modal";
+import BackendURL from "../../../BackendContext"
 import axios from "axios";
 import { toast, ToastContainer } from "react-toastify";
 
 const MyPackages = ({gymUser}) => {
+
+  const API = BackendURL();
   const [refresh, setRefresh] = useState(false)
   const [isEdit, setIsEdit] = useState(false)
   const [modalIsOpen, setIsOpen] = useState(false);
@@ -18,7 +21,7 @@ const MyPackages = ({gymUser}) => {
   const [file, setFile] = useState()
 
   useEffect(() => {
-    axios.get(`https://fit-club-connect-backend.vercel.app/Package/GetPackageDetails/${gymUser._id}`)
+    axios.get(`${API}/Package/GetPackageDetails/${gymUser._id}`)
     .then(response => setPackageDetails(response.data))
     .catch(error => console.error("Getting Erorr in fetching package details: "+error))
   },[gymUser._id, refresh])
@@ -43,7 +46,7 @@ const MyPackages = ({gymUser}) => {
     const UpdatedPackageData = new FormData();
     Object.entries(updatePackage).forEach(([key, value]) => { UpdatedPackageData.append(key, value) });
     UpdatedPackageData.append("UpdatedPackageProfile",file);
-    axios.put(`https://fit-club-connect-backend.vercel.app/Package/UpdatePackageDetails/${packageId}`, UpdatedPackageData)
+    axios.put(`${API}/Package/UpdatePackageDetails/${packageId}`, UpdatedPackageData)
     .then(response => {
       if(response.data.message === "Package Details has been updated successfully"){
         toast.success(response.data.message)
@@ -60,7 +63,7 @@ const MyPackages = ({gymUser}) => {
   }
 
   const DeletePackage = packageID => {
-    axios.delete(`https://fit-club-connect-backend.vercel.app/Package/DeletePackage/${packageID}`)
+    axios.delete(`${API}/Package/DeletePackage/${packageID}`)
     .then(response => {
       if(response.data.message === "Package Deleted Successfully"){
         toast.success(response.data.message)

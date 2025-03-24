@@ -1,10 +1,12 @@
 import React, { useState } from "react";
 import "./clubProfile.css"
+import {BackendURL} from "../../../BackendContext"
 import axios from "axios";
 import { toast, ToastContainer } from "react-toastify";
 
 const ClubProfile=({gymUser, setGymUser})=>{
 
+    const API = BackendURL();
     const [updateUser, setUpdateUser] = useState({
         firstName: "",
         lastName: "",
@@ -32,7 +34,7 @@ const ClubProfile=({gymUser, setGymUser})=>{
         const gymUpdatedData = new FormData();
         Object.entries(updateUser).forEach(([key,value]) => { gymUpdatedData.append(key,value) })
         gymUpdatedData.append("GymProfileUpdated",image)
-        axios.put(`https://fit-club-connect-backend.vercel.app/Club/UpdateClubDetails/${gymUser._id}`, gymUpdatedData)
+        axios.put(`${API}/Club/UpdateClubDetails/${gymUser._id}`, gymUpdatedData)
         .then(response => {
             if(response.data.message === "Basic Info has been Updated Successfully"){
                 toast.success(response.data.message);

@@ -2,10 +2,12 @@ import React, { useState } from "react";
 import "./landingPage.css";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import BackendURL from "../../../BackendContext"
 import { toast, ToastContainer } from "react-toastify";
 
 function LandingPage() {
 
+  const API = BackendURL();
   const [newsLetter, setNewsLetter] = useState("");
 
   const handleChange = eventTriggered => {
@@ -26,7 +28,7 @@ function LandingPage() {
 
   const NewsLetter = () => {
     if(isEmailValid(newsLetter)){
-      axios.post("https://fit-club-connect-backend.vercel.app/NewsLetter", {newsLetter})
+      axios.post(`${API}/NewsLetter`, {newsLetter})
       .then(response => {
         toast.success(response.data.message)
         setNewsLetter("")

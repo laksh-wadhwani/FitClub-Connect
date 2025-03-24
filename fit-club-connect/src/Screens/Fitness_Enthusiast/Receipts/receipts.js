@@ -1,16 +1,18 @@
 import React, { useEffect, useState } from "react";
 import "./receipts.css"
 import axios from "axios";
+import BackendURL from "../../../BackendContext"
 
 const Receipts = ({user}) => {
 
+    const API = BackendURL();
     const [receiptData, setReceiptData] = useState([])
 
     const isPaymentApproved = receiptData?.every(receipt => receipt.isProviderAcknowledged===true)
     const buttoneName = isPaymentApproved? 'Payment Approved':'Payment Pending'
 
     useEffect(() => {
-        axios.get(`https://fit-club-connect-backend.vercel.app/Enthusiast/GetReceiptForConsumer/${user._id}`)
+        axios.get(`${API}/Enthusiast/GetReceiptForConsumer/${user._id}`)
         .then(response => setReceiptData(response.data))
         .catch(error => console.error("Getting error in fetching receipt data: "+error))
     }, [user._id])

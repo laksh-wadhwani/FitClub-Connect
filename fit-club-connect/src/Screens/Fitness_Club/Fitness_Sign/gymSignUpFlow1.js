@@ -1,11 +1,13 @@
 import React, { useRef, useState } from "react";
 import '../../Fitness_Enthusiast/User_Sign/userSignUp.css'
+import BackendURL from "../../../BackendContext"
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { toast, ToastContainer } from "react-toastify";
 
 const GymSignUpFlow1 = () => {
 
+    const API = BackendURL()
     const navigate = useNavigate();
     const [isContinue, setIsContinue] = useState(false)
     const [user, setUser] = useState({
@@ -58,7 +60,7 @@ const GymSignUpFlow1 = () => {
 
     const Continue = () => {
         if(isEmailValid(email)){
-            axios.post("https://fit-club-connect-backend.vercel.app/Club/SignUpFlow1",{email})
+            axios.post(`${API}/Club/SignUpFlow1`,{email})
             .then(response => {
                 if(response.data.message === 'User Already Exist'){
                     toast.error(response.data.message)
@@ -79,7 +81,7 @@ const GymSignUpFlow1 = () => {
     }
 
     const Verify = () => {
-        axios.post("https://fit-club-connect-backend.vercel.app/Club/VerifyOTP", {finalOTP, email})
+        axios.post(`${API}/Club/VerifyOTP`, {finalOTP, email})
         .then(response => {
             if(response.data.message === 'User has been registered successfully'){
                 toast.success(response.data.message)

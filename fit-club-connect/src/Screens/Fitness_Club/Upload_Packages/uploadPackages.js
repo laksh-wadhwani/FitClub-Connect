@@ -1,11 +1,13 @@
 import React, { useState } from "react";
 import './uploadPackages.css';
 import axios from "axios";
+import BackendURL from "../../../BackendContext"
 import { useNavigate } from "react-router-dom";
 import { toast, ToastContainer } from "react-toastify";
 
 const UploadPackages=({gymUser})=>{
 
+    const API = BackendURL();
     const navigate = useNavigate();
     const [packageDetails, setPackageDetails] = useState({
         gymID: gymUser._id,
@@ -31,7 +33,7 @@ const UploadPackages=({gymUser})=>{
         packagesData.append("PackageProfile",image);
         const {packageName, duration, price, description} = packageDetails;
         if(packageName&&duration&&price&&description){
-             axios.post("https://fit-club-connect-backend.vercel.app/Package/UploadPackage", packagesData)
+             axios.post(`${API}/Package/UploadPackage`, packagesData)
              .then(response=> {
                 if(response.data.message === "Package already exists for this GYM"){
                     toast.error(response.data.message)

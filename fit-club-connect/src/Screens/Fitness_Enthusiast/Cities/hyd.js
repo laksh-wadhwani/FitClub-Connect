@@ -1,14 +1,17 @@
 import React, { useEffect, useState } from "react";
 import './cities.css';
 import axios from "axios";
+import BackendURL from "../../../BackendContext"
 import { useNavigate } from "react-router-dom";
 
 const Hyderabad=()=>{
+
+    const API = BackendURL();
     const navigate = useNavigate();
     const [gymDetails, setGymDetails] = useState([]);
     
     useEffect(()=>{
-        axios.get("https://fit-club-connect-backend.vercel.app/Club/GetClubDetails")
+        axios.get(`${API}/Club/GetClubDetails`)
         .then(response => { 
             const filteredGyms = response.data.filter(gym => gym.cityName === 'hyderabad')
             setGymDetails(filteredGyms); 

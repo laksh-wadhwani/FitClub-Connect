@@ -2,11 +2,14 @@ import React, { useEffect,useState } from "react";
 import './workout.css';
 import Modal from "react-modal";
 import axios from "axios";
+import BackendURL from "../../../BackendContext"
 import ReactPlayer from 'react-player';
 import { QRCodeCanvas } from 'qrcode.react';
 import { toast, ToastContainer } from "react-toastify";
 
 const Workout = ({ gymUser }) => {
+
+    const API = BackendURL();
     const [modalIsOpen, setIsOpen] = useState(false);
     const [playerModal, setPlayerModal] = useState(false);
     const [qrModal, setQrModal] = useState(false);
@@ -20,7 +23,7 @@ const Workout = ({ gymUser }) => {
     const [videoData, setVideoData] = useState();
 
     useEffect(() => {
-        axios.get(`https://fit-club-connect-backend.vercel.app/Club/GetWorkoutVideo/${gymUser._id}`)
+        axios.get(`${API}/Club/GetWorkoutVideo/${gymUser._id}`)
             .then(response => setVideoData(response.data))
             .catch(error => console.error("Error retrieving workout video: " + error));
     }, [gymUser._id, refresh]);
@@ -56,7 +59,7 @@ const Workout = ({ gymUser }) => {
         const VideoData = new FormData();
         Object.entries(data).forEach(([key, value]) => { VideoData.append(key, value) });
         VideoData.append("Workout_Video", video);
-        axios.post(`https://fit-club-connect-backend.vercel.app/Club/UploadVideo/${gymUser._id}`, VideoData)
+        axios.post(`${API}/Club/UploadVideo/${gymUser._id}`, VideoData)
             .then(response => {
                 if(response.data.message === "Video has been uploaded"){
                     toast.success(response.data.message);

@@ -2,11 +2,14 @@ import React, { useState, useEffect } from "react";
 import "./packages.css";
 import Modal from "react-modal";
 import axios from "axios";
+import BackendURL from "../../../BackendContext"
 import { useLocation, useNavigate, useParams } from "react-router-dom";
 import { toast, ToastContainer } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
 
 const Packages = ({user}) => {
+
+  const API = BackendURL();
   const navigate = useNavigate();
   const location = useLocation();
   const { clubDetails } = location.state || {};
@@ -17,7 +20,7 @@ const Packages = ({user}) => {
 
   useEffect(() => {
     axios
-      .get(`https://fit-club-connect-backend.vercel.app/Package/GetPackageDetails/${id}`)
+      .get(`${API}/Package/GetPackageDetails/${id}`)
       .then((response) => setDetails(response.data));
   }, [id]);
 
@@ -31,7 +34,7 @@ const Packages = ({user}) => {
 
   const HandleSubscribe = packageId => {
     if(IsSignedIn){
-      axios.post(`https://fit-club-connect-backend.vercel.app/Cart/AddToCart/${user._id}/${packageId}/${id}`)
+      axios.post(`${API}/Cart/AddToCart/${user._id}/${packageId}/${id}`)
       .then(response => {
         toast.success(response.data.message)
         setIsOpen(false)

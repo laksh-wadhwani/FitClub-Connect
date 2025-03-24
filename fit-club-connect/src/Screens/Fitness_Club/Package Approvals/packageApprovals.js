@@ -1,10 +1,13 @@
 import React, { useEffect, useState } from "react";
 import "./packageApprovals.css";
 import Modal from "react-modal";
+import BackendURL from "../../../BackendContext"
 import axios from "axios";
 import { toast, ToastContainer } from "react-toastify";
 
 const PackageApprovals = ({gymUser}) => {
+
+  const API = BackendURL();
   const [isReject, setIsReject] = useState(false)
   const [modalIsOpen, setIsOpen] = useState(false);
   const [isRefresh, setIsRefresh] = useState(false)
@@ -13,11 +16,11 @@ const PackageApprovals = ({gymUser}) => {
   const [rejectedRemarks, setRemarks] = useState()
 
   useEffect(() => {
-    axios.get(`https://fit-club-connect-backend.vercel.app/Cart/GetCartDetailsForClub/${gymUser._id}`)
+    axios.get(`${API}/Cart/GetCartDetailsForClub/${gymUser._id}`)
     .then(response => setDetails(response.data))
     .catch(error => console.error("Getting error in fetching cart approval details"+error))
 
-    axios.get(`https://fit-club-connect-backend.vercel.app/Club/GetReceiptForProvider/${gymUser._id}`)
+    axios.get(`${API}/Club/GetReceiptForProvider/${gymUser._id}`)
     .then(response => setReceiptData(response.data))
     .catch(error => console.error("Getting error in fetching receipts data: "+error))
   },[gymUser._id, isRefresh])
@@ -31,7 +34,7 @@ const PackageApprovals = ({gymUser}) => {
   };
 
   const ApprovePackage = cartPackageID => {
-    axios.put(`https://fit-club-connect-backend.vercel.app/Cart/CartPackageApproval/${cartPackageID}`)
+    axios.put(`${API}/Cart/CartPackageApproval/${cartPackageID}`)
     .then(response => {
       if(response.data.message === "Request has been approved successfully"){
         toast.success(response.data.message)
@@ -47,7 +50,7 @@ const PackageApprovals = ({gymUser}) => {
   }
   
   const RejectPackage = (cartPackageID, userID) => {
-    axios.delete(`https://fit-club-connect-backend.vercel.app/Cart/CartPackageReject/${cartPackageID}/${userID}`,{ params: {rejectedRemarks} })
+    axios.delete(`${API}/Cart/CartPackageReject/${cartPackageID}/${userID}`,{ params: {rejectedRemarks} })
     .then(response => {
       if(response.data.message === "Package has been rejected"){
         toast.success(response.data.message)
@@ -64,7 +67,7 @@ const PackageApprovals = ({gymUser}) => {
   }
 
   const Acknowledgement = transactionID => {
-    axios.put(`https://fit-club-connect-backend.vercel.app/Club/PaymentAcknowledgement/${transactionID}`)
+    axios.put(`${API}/Club/PaymentAcknowledgement/${transactionID}`)
     .then(response => {
       if(response.data.message === "Payment Acknowledged"){
         toast.success(response.data.message)

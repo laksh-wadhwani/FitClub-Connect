@@ -3,9 +3,11 @@ import "./gymSignUp.css";
 import axios from "axios";
 import { useNavigate, useParams } from "react-router-dom";
 import { toast, ToastContainer } from "react-toastify";
+import { BackendURL } from "../../../BackendContext";
 
 const GymSignUpFlow3 = () => {
     
+    const API = BackendURL();
     const navigate = useNavigate();
     const {email} = useParams();
     const [numAccounts, setNumAccounts] = useState(1);
@@ -31,7 +33,7 @@ const GymSignUpFlow3 = () => {
     };
 
     const Submit = () => {
-        axios.put(`https://fit-club-connect-backend.vercel.app/Club/AccountDetails/${email}`,{accounts})
+        axios.put(`${API}/Club/AccountDetails/${email}`,{accounts})
         .then(response => {
             toast.success(response.data.message)
             setTimeout(() => {navigate("/GymSignIn")},2000)
