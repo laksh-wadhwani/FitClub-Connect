@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./packageApprovals.css";
 import Modal from "react-modal";
-import BackendURL from "../../../BackendContext"
+import { BackendURL } from "../../../BackendContext";
 import axios from "axios";
 import { toast, ToastContainer } from "react-toastify";
 

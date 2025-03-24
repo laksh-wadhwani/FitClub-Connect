@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import './gymSignIn.css';
 import axios from "axios";
-import BackendURL from "../../../BackendContext"
 import { useNavigate } from "react-router-dom";
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { BackendURL } from "../../../BackendContext";
 
 const GymSignIn=({setGymUser})=>{
 

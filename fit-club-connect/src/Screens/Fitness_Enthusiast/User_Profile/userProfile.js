@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "./userProfile.css"
 import axios from "axios";
 import { toast, ToastContainer } from "react-toastify";
-import BackendURL from "../../../BackendContext"
+import { BackendURL } from "../../../BackendContext";
 
 const UserProfile = ({user, setLoginUser}) => {
 

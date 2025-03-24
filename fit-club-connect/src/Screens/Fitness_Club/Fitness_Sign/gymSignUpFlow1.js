@@ -1,13 +1,13 @@
 import React, { useRef, useState } from "react";
 import '../../Fitness_Enthusiast/User_Sign/userSignUp.css'
-import BackendURL from "../../../BackendContext"
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { toast, ToastContainer } from "react-toastify";
+import { BackendURL } from "../../../BackendContext";
 
 const GymSignUpFlow1 = () => {
 
-    const API = BackendURL()
+    const API = BackendURL();
     const navigate = useNavigate();
     const [isContinue, setIsContinue] = useState(false)
     const [user, setUser] = useState({

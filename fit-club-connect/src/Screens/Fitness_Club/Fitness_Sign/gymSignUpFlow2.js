@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import "./gymSignUp.css";
-import BackendURL from "../../../BackendContext"
 import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 import { toast, ToastContainer } from "react-toastify";
+import { BackendURL } from "../../../BackendContext";
 
 const GymSignUpFlow2 = () => {
 

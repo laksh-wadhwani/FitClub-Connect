@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import './cities.css';
 import axios from "axios";
-import BackendURL from "../../../BackendContext"
+import { BackendURL } from "../../../BackendContext";
 import { useNavigate } from "react-router-dom";
 
 const Islamabad=()=>{

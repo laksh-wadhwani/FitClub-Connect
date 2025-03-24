@@ -2,7 +2,7 @@ import React, { useEffect,useState } from "react";
 import './workout.css';
 import Modal from "react-modal";
 import axios from "axios";
-import BackendURL from "../../../BackendContext"
+import { BackendURL } from "../../../BackendContext";
 import ReactPlayer from 'react-player';
 import { QRCodeCanvas } from 'qrcode.react';
 import { toast, ToastContainer } from "react-toastify";

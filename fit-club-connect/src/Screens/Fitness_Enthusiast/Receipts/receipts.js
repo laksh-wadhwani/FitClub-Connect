@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./receipts.css"
 import axios from "axios";
-import BackendURL from "../../../BackendContext"
+import { BackendURL } from "../../../BackendContext";
 
 const Receipts = ({user}) => {
 

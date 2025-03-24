@@ -6,7 +6,7 @@ import { BackendURL } from "../../../BackendContext";
 
 const ClubProfile=({gymUser, setGymUser})=>{
 
-    const API = BackendURL
+    const API = BackendURL();
     const [updateUser, setUpdateUser] = useState({
         firstName: "",
         lastName: "",

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import "./cart.css";
 import { useParams } from "react-router-dom";
 import axios from "axios";
-import BackendURL from "../../../BackendContext"
+import { BackendURL } from "../../../BackendContext";
 import  Modal  from "react-modal";
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
